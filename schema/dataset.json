@@ -8,10 +8,10 @@
   "kaggle_description_file": "docs/kaggle-description.md",
   "kaggle_license": "other",
   "keywords": [
-    "brazil",
-    "geography",
+    "tabular",
     "cities and urban areas",
-    "tabular"
+    "geography",
+    "brazil"
   ],
   "tables": [
     {

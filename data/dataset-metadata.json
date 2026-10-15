@@ -9,10 +9,10 @@
     }
   ],
   "keywords": [
-    "brazil",
-    "geography",
+    "tabular",
     "cities and urban areas",
-    "tabular"
+    "geography",
+    "brazil"
   ],
   "resources": [
     {
@@ -100,11 +100,169 @@
     },
     {
       "path": "municipios.parquet",
-      "description": "All 5,570 Brazilian municipalities: IBGE and SIAFI codes, state, region, capital flag, coordinates, DDD, IANA time zone and IBGE boundary URL (Parquet, typed)."
+      "description": "All 5,570 Brazilian municipalities: IBGE and SIAFI codes, state, region, capital flag, coordinates, DDD, IANA time zone and IBGE boundary URL (Parquet, typed).",
+      "schema": {
+        "fields": [
+          {
+            "name": "ibge_code",
+            "description": "IBGE municipality code (7 digits, last one is a check digit). Primary key.",
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "description": "Official municipality name, with accents.",
+            "type": "string"
+          },
+          {
+            "name": "name_ascii",
+            "description": "Name without accents (NFKD), for search and matching.",
+            "type": "string"
+          },
+          {
+            "name": "slug",
+            "description": "URL slug: name without accents, lowercase, hyphenated, plus the state (sao-paulo-sp). Unique.",
+            "type": "string"
+          },
+          {
+            "name": "uf",
+            "description": "State abbreviation (SP, BA\u2026).",
+            "type": "string"
+          },
+          {
+            "name": "state_ibge_code",
+            "description": "IBGE state code (2 digits); equals the first two digits of ibge_code.",
+            "type": "integer"
+          },
+          {
+            "name": "region",
+            "description": "Region: Norte, Nordeste, Sudeste, Sul, Centro-Oeste.",
+            "type": "string"
+          },
+          {
+            "name": "is_capital",
+            "description": "True for the 27 state capitals (Bras\u00edlia included).",
+            "type": "boolean"
+          },
+          {
+            "name": "latitude",
+            "description": "Latitude of the municipal seat, decimal degrees.",
+            "type": "number"
+          },
+          {
+            "name": "longitude",
+            "description": "Longitude of the municipal seat, decimal degrees.",
+            "type": "number"
+          },
+          {
+            "name": "ddd",
+            "description": "Telephone area code.",
+            "type": "integer"
+          },
+          {
+            "name": "siafi_code",
+            "description": "Municipality code in SIAFI (Treasury system), 4 digits with leading zeros. Used by federal transfer data.",
+            "type": "string"
+          },
+          {
+            "name": "timezone",
+            "description": "Canonical IANA time zone (America/Sao_Paulo, America/Manaus, America/Eirunepe\u2026).",
+            "type": "string"
+          },
+          {
+            "name": "utc_offset",
+            "description": "Standard UTC offset (Brazil has no daylight saving time since 2019).",
+            "type": "string"
+          },
+          {
+            "name": "mesh_url",
+            "description": "IBGE API v3 URL for the municipality boundary. Add ?formato=application/vnd.geo+json for GeoJSON.",
+            "type": "string"
+          }
+        ]
+      }
     },
     {
       "path": "municipios.json",
-      "description": "All 5,570 Brazilian municipalities: IBGE and SIAFI codes, state, region, capital flag, coordinates, DDD, IANA time zone and IBGE boundary URL (JSON)."
+      "description": "All 5,570 Brazilian municipalities: IBGE and SIAFI codes, state, region, capital flag, coordinates, DDD, IANA time zone and IBGE boundary URL (JSON).",
+      "schema": {
+        "fields": [
+          {
+            "name": "ibge_code",
+            "description": "IBGE municipality code (7 digits, last one is a check digit). Primary key.",
+            "type": "integer"
+          },
+          {
+            "name": "name",
+            "description": "Official municipality name, with accents.",
+            "type": "string"
+          },
+          {
+            "name": "name_ascii",
+            "description": "Name without accents (NFKD), for search and matching.",
+            "type": "string"
+          },
+          {
+            "name": "slug",
+            "description": "URL slug: name without accents, lowercase, hyphenated, plus the state (sao-paulo-sp). Unique.",
+            "type": "string"
+          },
+          {
+            "name": "uf",
+            "description": "State abbreviation (SP, BA\u2026).",
+            "type": "string"
+          },
+          {
+            "name": "state_ibge_code",
+            "description": "IBGE state code (2 digits); equals the first two digits of ibge_code.",
+            "type": "integer"
+          },
+          {
+            "name": "region",
+            "description": "Region: Norte, Nordeste, Sudeste, Sul, Centro-Oeste.",
+            "type": "string"
+          },
+          {
+            "name": "is_capital",
+            "description": "True for the 27 state capitals (Bras\u00edlia included).",
+            "type": "boolean"
+          },
+          {
+            "name": "latitude",
+            "description": "Latitude of the municipal seat, decimal degrees.",
+            "type": "number"
+          },
+          {
+            "name": "longitude",
+            "description": "Longitude of the municipal seat, decimal degrees.",
+            "type": "number"
+          },
+          {
+            "name": "ddd",
+            "description": "Telephone area code.",
+            "type": "integer"
+          },
+          {
+            "name": "siafi_code",
+            "description": "Municipality code in SIAFI (Treasury system), 4 digits with leading zeros. Used by federal transfer data.",
+            "type": "string"
+          },
+          {
+            "name": "timezone",
+            "description": "Canonical IANA time zone (America/Sao_Paulo, America/Manaus, America/Eirunepe\u2026).",
+            "type": "string"
+          },
+          {
+            "name": "utc_offset",
+            "description": "Standard UTC offset (Brazil has no daylight saving time since 2019).",
+            "type": "string"
+          },
+          {
+            "name": "mesh_url",
+            "description": "IBGE API v3 URL for the municipality boundary. Add ?formato=application/vnd.geo+json for GeoJSON.",
+            "type": "string"
+          }
+        ]
+      }
     },
     {
       "path": "estados.csv",
@@ -186,11 +344,159 @@
     },
     {
       "path": "estados.parquet",
-      "description": "The 27 federative units: IBGE code, region, capital, centre coordinates, time zone and the prepositions and article each name takes in Portuguese (Parquet, typed)."
+      "description": "The 27 federative units: IBGE code, region, capital, centre coordinates, time zone and the prepositions and article each name takes in Portuguese (Parquet, typed).",
+      "schema": {
+        "fields": [
+          {
+            "name": "ibge_code",
+            "description": "IBGE state code (2 digits). Primary key.",
+            "type": "integer"
+          },
+          {
+            "name": "uf",
+            "description": "State abbreviation.",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "State name.",
+            "type": "string"
+          },
+          {
+            "name": "region",
+            "description": "Region (from the first digit of ibge_code).",
+            "type": "string"
+          },
+          {
+            "name": "capital",
+            "description": "Capital city (from municipios.csv).",
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "description": "Approximate latitude of the state centre.",
+            "type": "number"
+          },
+          {
+            "name": "longitude",
+            "description": "Approximate longitude of the state centre.",
+            "type": "number"
+          },
+          {
+            "name": "article",
+            "description": "Definite article used with the name: o, a, or empty when the name takes none (Goi\u00e1s, S\u00e3o Paulo).",
+            "type": "string"
+          },
+          {
+            "name": "prep_em",
+            "description": "\"em\" + article: no, na or em (no Acre, na Bahia, em Goi\u00e1s).",
+            "type": "string"
+          },
+          {
+            "name": "prep_de",
+            "description": "\"de\" + article: do, da or de (do Acre, da Bahia, de Goi\u00e1s).",
+            "type": "string"
+          },
+          {
+            "name": "name_with_em",
+            "description": "Ready-made phrase: prep_em + name (\"na Bahia\").",
+            "type": "string"
+          },
+          {
+            "name": "name_with_de",
+            "description": "Ready-made phrase: prep_de + name (\"de S\u00e3o Paulo\").",
+            "type": "string"
+          },
+          {
+            "name": "timezone",
+            "description": "Canonical IANA time zone of the capital.",
+            "type": "string"
+          },
+          {
+            "name": "mesh_url",
+            "description": "IBGE API v3 URL for the state boundary.",
+            "type": "string"
+          }
+        ]
+      }
     },
     {
       "path": "estados.json",
-      "description": "The 27 federative units: IBGE code, region, capital, centre coordinates, time zone and the prepositions and article each name takes in Portuguese (JSON)."
+      "description": "The 27 federative units: IBGE code, region, capital, centre coordinates, time zone and the prepositions and article each name takes in Portuguese (JSON).",
+      "schema": {
+        "fields": [
+          {
+            "name": "ibge_code",
+            "description": "IBGE state code (2 digits). Primary key.",
+            "type": "integer"
+          },
+          {
+            "name": "uf",
+            "description": "State abbreviation.",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "State name.",
+            "type": "string"
+          },
+          {
+            "name": "region",
+            "description": "Region (from the first digit of ibge_code).",
+            "type": "string"
+          },
+          {
+            "name": "capital",
+            "description": "Capital city (from municipios.csv).",
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "description": "Approximate latitude of the state centre.",
+            "type": "number"
+          },
+          {
+            "name": "longitude",
+            "description": "Approximate longitude of the state centre.",
+            "type": "number"
+          },
+          {
+            "name": "article",
+            "description": "Definite article used with the name: o, a, or empty when the name takes none (Goi\u00e1s, S\u00e3o Paulo).",
+            "type": "string"
+          },
+          {
+            "name": "prep_em",
+            "description": "\"em\" + article: no, na or em (no Acre, na Bahia, em Goi\u00e1s).",
+            "type": "string"
+          },
+          {
+            "name": "prep_de",
+            "description": "\"de\" + article: do, da or de (do Acre, da Bahia, de Goi\u00e1s).",
+            "type": "string"
+          },
+          {
+            "name": "name_with_em",
+            "description": "Ready-made phrase: prep_em + name (\"na Bahia\").",
+            "type": "string"
+          },
+          {
+            "name": "name_with_de",
+            "description": "Ready-made phrase: prep_de + name (\"de S\u00e3o Paulo\").",
+            "type": "string"
+          },
+          {
+            "name": "timezone",
+            "description": "Canonical IANA time zone of the capital.",
+            "type": "string"
+          },
+          {
+            "name": "mesh_url",
+            "description": "IBGE API v3 URL for the state boundary.",
+            "type": "string"
+          }
+        ]
+      }
     }
   ]
 }
