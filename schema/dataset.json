@@ -6,7 +6,7 @@
   "kaggle_title": "Municípios e Estados do Brasil (IBGE, DDD, fusos)",
   "kaggle_subtitle": "5,570 municipalities and 27 states: IBGE/SIAFI codes, DDD, IANA zones, grammar",
   "kaggle_description_file": "docs/kaggle-description.md",
-  "kaggle_license": "CC-BY-4.0",
+  "kaggle_license": "other",
   "keywords": [
     "brazil",
     "geography",
