@@ -1,6 +1,10 @@
 **Municípios e estados do Brasil** com códigos IBGE e SIAFI, DDD, fusos horários IANA, coordenadas e a gramática de cada estado para geração de texto. **Brazilian municipalities and states** with IBGE and SIAFI codes, phone area codes, IANA time zones, coordinates and the grammar each state name takes in Portuguese.
 
+![States by time zone](https://raw.githubusercontent.com/CaiqueDourado/municipios-e-estados-do-brasil/main/docs/img/mapa-estados.png)
+
 ![Municipalities by time zone](https://raw.githubusercontent.com/CaiqueDourado/municipios-e-estados-do-brasil/main/docs/img/mapa-fusos.png)
+
+![Municipalities by region](https://raw.githubusercontent.com/CaiqueDourado/municipios-e-estados-do-brasil/main/docs/img/mapa-regioes.png)
 
 ## Files
 
@@ -8,6 +12,7 @@
 - `estados.csv`: the 27 federative units. IBGE code, region, capital, centre coordinates, time zone, and the article and prepositions for text generation: `no Acre`, `na Bahia`, `em Goiás`, `do Acre`, `de São Paulo`.
 - Each table also comes as typed Parquet and as JSON.
 - `municipios.geojson`: all municipal seats as GeoJSON points, ready for QGIS, Kepler.gl, Folium or any web map.
+- `estados.geojson`: boundaries of the 27 states (IBGE API v3) as GeoJSON polygons, joined to `estados.csv`.
 
 ## Why another municipalities table
 
