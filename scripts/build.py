@@ -148,6 +148,23 @@ def write(frame: pd.DataFrame, stem: str) -> None:
     (OUT / f"{stem}.json").write_text(json.dumps(records, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def geojson(cities: pd.DataFrame) -> dict:
+    """Municipal seats as GeoJSON points; GitHub renders this file as an interactive map."""
+    features = []
+    for row in cities.itertuples():
+        features.append(
+            {
+                "type": "Feature",
+                "geometry": {"type": "Point", "coordinates": [row.longitude, row.latitude]},
+                "properties": {
+                    "ibge_code": row.ibge_code, "name": row.name, "uf": row.uf, "region": row.region,
+                    "ddd": row.ddd, "timezone": row.timezone, "is_capital": bool(row.is_capital),
+                },
+            }
+        )
+    return {"type": "FeatureCollection", "features": features}
+
+
 def main() -> None:
     raw_states = read("estados.csv", RAW_STATE_COLUMNS)
     raw_cities = read("cidades.csv", RAW_CITY_COLUMNS)
@@ -160,6 +177,9 @@ def main() -> None:
     OUT.mkdir(exist_ok=True)
     write(cities, "municipios")
     write(states, "estados")
+    (OUT / "municipios.geojson").write_text(
+        json.dumps(geojson(cities), ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8"
+    )
     stats = {
         "dataset": "municipios-e-estados-do-brasil",
         "municipios": {"rows": len(cities), "by_uf": cities["uf"].value_counts().sort_index().to_dict(), "fields": column_stats(cities)},

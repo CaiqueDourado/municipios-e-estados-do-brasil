@@ -39,7 +39,7 @@ Added by the author:
 `scripts/build.py` reads both files and:
 
 1. Types every column, converts decimal commas to points, and replaces internal ids with IBGE codes as keys.
-2. Adds `region`, `name_ascii`, `slug` and `utc_offset` to municipalities; adds `capital`, `name_with_em` and `name_with_de` to states.
+2. Adds `region`, `name_ascii`, `slug` and `utc_offset` to municipalities; adds `capital`, `name_with_em` and `name_with_de` to states; writes `municipios.geojson` (one point per municipal seat).
 3. Replaces the time zone with the canonical IANA zone, fixes the article column, and moves boundary URLs to the IBGE API v3. Details in [data-quality.md](data-quality.md).
 
 ```mermaid
@@ -55,6 +55,7 @@ flowchart LR
 ```bash
 pip install -r requirements.txt
 python scripts/build.py && python scripts/validate.py && python scripts/docs.py
+python scripts/maps.py   # README maps, needs matplotlib
 ```
 
 ## 4. Validation

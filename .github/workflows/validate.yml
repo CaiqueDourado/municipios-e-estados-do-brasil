@@ -18,6 +18,6 @@ jobs:
         run: |
           python scripts/build.py
           python scripts/docs.py
-          git diff --exit-code -- data/*.csv data/*.json docs stats.json
+          git diff --exit-code -- data/*.csv data/*.json data/*.geojson docs/*.md stats.json
       - name: Validate
         run: python scripts/validate.py

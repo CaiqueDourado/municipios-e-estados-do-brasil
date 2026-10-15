@@ -2,6 +2,13 @@
 
 Versions follow [Semantic Versioning](https://semver.org/): a new major version renames or removes columns.
 
+## [1.1.0] - 2026-10-15
+
+### Added
+- `data/municipios.geojson`: every municipal seat as a GeoJSON point; GitHub renders it as an interactive map.
+- Map section in the READMEs: time zone map, regional small multiples and an interactive map of the 27 capitals.
+- `scripts/maps.py`, which generates `docs/img/mapa-fusos.png` and `docs/img/mapa-regioes.png`.
+
 ## [1.0.0] - 2026-10-15
 
 ### Added

@@ -5,9 +5,9 @@ title: "Municípios e estados do Brasil: IBGE and SIAFI codes, DDD, time zones, 
 authors:
   - family-names: Dourado
     given-names: Caique
-version: 1.0.0
+version: 1.1.0
 date-released: 2026-10-15
-license: other
+license: CC-BY-4.0
 repository-code: "https://github.com/CaiqueDourado/municipios-e-estados-do-brasil"
 url: "https://www.kaggle.com/datasets/caiquedourado/municipios-e-estados-do-brasil"
 keywords:

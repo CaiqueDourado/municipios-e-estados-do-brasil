@@ -36,5 +36,11 @@
     "- Codificação UTF-8 sem BOM, separador vírgula, cabeçalho na primeira linha, quebra de linha `\\n`.",
     "- Separador decimal é o ponto `.`. Booleanos são `True` / `False`.",
     "- `ibge_code` cruza com qualquer tabela do IBGE; `siafi_code`, com dados do Tesouro (SIAFI); `uf` liga `municipios.csv` a `estados.csv`."
+  ],
+  "extra_resources": [
+    {
+      "path": "municipios.geojson",
+      "description": "All 5,570 municipal seats as GeoJSON points (properties: ibge_code, name, uf, region, ddd, timezone, is_capital)."
+    }
   ]
 }
