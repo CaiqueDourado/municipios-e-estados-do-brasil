@@ -1,0 +1,28 @@
+ibge_code,uf,name,region,capital,latitude,longitude,article,prep_em,prep_de,name_with_em,name_with_de,timezone,mesh_url
+11,RO,Rondônia,Norte,Porto Velho,-10.83,-63.34,,em,de,em Rondônia,de Rondônia,America/Porto_Velho,https://servicodados.ibge.gov.br/api/v3/malhas/estados/11
+12,AC,Acre,Norte,Rio Branco,-8.77,-70.55,o,no,do,no Acre,do Acre,America/Rio_Branco,https://servicodados.ibge.gov.br/api/v3/malhas/estados/12
+13,AM,Amazonas,Norte,Manaus,-3.47,-65.1,o,no,do,no Amazonas,do Amazonas,America/Manaus,https://servicodados.ibge.gov.br/api/v3/malhas/estados/13
+14,RR,Roraima,Norte,Boa Vista,1.99,-61.33,,em,de,em Roraima,de Roraima,America/Boa_Vista,https://servicodados.ibge.gov.br/api/v3/malhas/estados/14
+15,PA,Pará,Norte,Belém,-3.79,-52.48,o,no,do,no Pará,do Pará,America/Belem,https://servicodados.ibge.gov.br/api/v3/malhas/estados/15
+16,AP,Amapá,Norte,Macapá,1.41,-51.77,o,no,do,no Amapá,do Amapá,America/Belem,https://servicodados.ibge.gov.br/api/v3/malhas/estados/16
+17,TO,Tocantins,Norte,Palmas,-9.46,-48.26,o,no,do,no Tocantins,do Tocantins,America/Araguaina,https://servicodados.ibge.gov.br/api/v3/malhas/estados/17
+21,MA,Maranhão,Nordeste,São Luís,-5.42,-45.44,o,no,do,no Maranhão,do Maranhão,America/Fortaleza,https://servicodados.ibge.gov.br/api/v3/malhas/estados/21
+22,PI,Piauí,Nordeste,Teresina,-6.6,-42.28,o,no,do,no Piauí,do Piauí,America/Fortaleza,https://servicodados.ibge.gov.br/api/v3/malhas/estados/22
+23,CE,Ceará,Nordeste,Fortaleza,-5.2,-39.53,o,no,do,no Ceará,do Ceará,America/Fortaleza,https://servicodados.ibge.gov.br/api/v3/malhas/estados/23
+24,RN,Rio Grande do Norte,Nordeste,Natal,-5.81,-36.59,o,no,do,no Rio Grande do Norte,do Rio Grande do Norte,America/Fortaleza,https://servicodados.ibge.gov.br/api/v3/malhas/estados/24
+25,PB,Paraíba,Nordeste,João Pessoa,-7.28,-36.72,a,na,da,na Paraíba,da Paraíba,America/Fortaleza,https://servicodados.ibge.gov.br/api/v3/malhas/estados/25
+26,PE,Pernambuco,Nordeste,Recife,-8.38,-37.86,,em,de,em Pernambuco,de Pernambuco,America/Recife,https://servicodados.ibge.gov.br/api/v3/malhas/estados/26
+27,AL,Alagoas,Nordeste,Maceió,-9.62,-36.82,,em,de,em Alagoas,de Alagoas,America/Maceio,https://servicodados.ibge.gov.br/api/v3/malhas/estados/27
+28,SE,Sergipe,Nordeste,Aracaju,-10.57,-37.45,,em,de,em Sergipe,de Sergipe,America/Maceio,https://servicodados.ibge.gov.br/api/v3/malhas/estados/28
+29,BA,Bahia,Nordeste,Salvador,-13.29,-41.71,a,na,da,na Bahia,da Bahia,America/Bahia,https://servicodados.ibge.gov.br/api/v3/malhas/estados/29
+31,MG,Minas Gerais,Sudeste,Belo Horizonte,-18.1,-44.38,,em,de,em Minas Gerais,de Minas Gerais,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/31
+32,ES,Espírito Santo,Sudeste,Vitória,-19.19,-40.34,o,no,do,no Espírito Santo,do Espírito Santo,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/32
+33,RJ,Rio de Janeiro,Sudeste,Rio de Janeiro,-22.25,-42.66,o,no,do,no Rio de Janeiro,do Rio de Janeiro,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/33
+35,SP,São Paulo,Sudeste,São Paulo,-22.19,-48.79,,em,de,em São Paulo,de São Paulo,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/35
+41,PR,Paraná,Sul,Curitiba,-24.89,-51.55,o,no,do,no Paraná,do Paraná,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/41
+42,SC,Santa Catarina,Sul,Florianópolis,-27.45,-50.95,,em,de,em Santa Catarina,de Santa Catarina,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/42
+43,RS,Rio Grande do Sul,Sul,Porto Alegre,-30.17,-53.5,o,no,do,no Rio Grande do Sul,do Rio Grande do Sul,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/43
+50,MS,Mato Grosso do Sul,Centro-Oeste,Campo Grande,-20.51,-54.54,o,no,do,no Mato Grosso do Sul,do Mato Grosso do Sul,America/Campo_Grande,https://servicodados.ibge.gov.br/api/v3/malhas/estados/50
+51,MT,Mato Grosso,Centro-Oeste,Cuiabá,-12.64,-55.42,o,no,do,no Mato Grosso,do Mato Grosso,America/Cuiaba,https://servicodados.ibge.gov.br/api/v3/malhas/estados/51
+52,GO,Goiás,Centro-Oeste,Goiânia,-15.98,-49.86,,em,de,em Goiás,de Goiás,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/52
+53,DF,Distrito Federal,Centro-Oeste,Brasília,-15.83,-47.86,o,no,do,no Distrito Federal,do Distrito Federal,America/Sao_Paulo,https://servicodados.ibge.gov.br/api/v3/malhas/estados/53

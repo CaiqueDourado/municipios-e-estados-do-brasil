@@ -1,0 +1,263 @@
+[
+  {
+    "table": "municipios.csv",
+    "name": "ibge_code",
+    "type": "integer",
+    "description_en": "IBGE municipality code (7 digits, last one is a check digit). Primary key.",
+    "description_pt": "Código IBGE do município (7 dígitos, o último é verificador). Chave primária.",
+    "standard": "IBGE",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "name",
+    "type": "string",
+    "description_en": "Official municipality name, with accents.",
+    "description_pt": "Nome oficial do município, com acentos.",
+    "standard": "IBGE",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "name_ascii",
+    "type": "string",
+    "description_en": "Name without accents (NFKD), for search and matching.",
+    "description_pt": "Nome sem acentos (NFKD), para busca e cruzamento.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "slug",
+    "type": "string",
+    "description_en": "URL slug: name without accents, lowercase, hyphenated, plus the state (sao-paulo-sp). Unique.",
+    "description_pt": "Slug para URL: nome sem acentos, minúsculo, com hífens, mais a UF (sao-paulo-sp). Único.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "uf",
+    "type": "string",
+    "description_en": "State abbreviation (SP, BA…).",
+    "description_pt": "Sigla da UF (SP, BA…).",
+    "standard": "IBGE",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "state_ibge_code",
+    "type": "integer",
+    "description_en": "IBGE state code (2 digits); equals the first two digits of ibge_code.",
+    "description_pt": "Código IBGE da UF (2 dígitos); igual aos dois primeiros dígitos de ibge_code.",
+    "standard": "IBGE",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "region",
+    "type": "string",
+    "description_en": "Region: Norte, Nordeste, Sudeste, Sul, Centro-Oeste.",
+    "description_pt": "Região: Norte, Nordeste, Sudeste, Sul, Centro-Oeste.",
+    "standard": "IBGE",
+    "origin": "derived"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "is_capital",
+    "type": "boolean",
+    "description_en": "True for the 27 state capitals (Brasília included).",
+    "description_pt": "Verdadeiro para as 27 capitais (Brasília inclusa).",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "latitude",
+    "type": "float",
+    "description_en": "Latitude of the municipal seat, decimal degrees.",
+    "description_pt": "Latitude da sede do município, em graus decimais.",
+    "standard": "WGS 84",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "longitude",
+    "type": "float",
+    "description_en": "Longitude of the municipal seat, decimal degrees.",
+    "description_pt": "Longitude da sede do município, em graus decimais.",
+    "standard": "WGS 84",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "ddd",
+    "type": "integer",
+    "description_en": "Telephone area code.",
+    "description_pt": "Código DDD de telefonia.",
+    "standard": "Anatel",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "siafi_code",
+    "type": "string",
+    "description_en": "Municipality code in SIAFI (Treasury system), 4 digits with leading zeros. Used by federal transfer data.",
+    "description_pt": "Código do município no SIAFI (Tesouro Nacional), 4 dígitos com zeros à esquerda. Usado nos dados de transferências federais.",
+    "standard": "SIAFI",
+    "origin": "source"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "timezone",
+    "type": "string",
+    "description_en": "Canonical IANA time zone (America/Sao_Paulo, America/Manaus, America/Eirunepe…).",
+    "description_pt": "Fuso IANA canônico (America/Sao_Paulo, America/Manaus, America/Eirunepe…).",
+    "standard": "IANA tzdb",
+    "origin": "corrected"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "utc_offset",
+    "type": "string",
+    "description_en": "Standard UTC offset (Brazil has no daylight saving time since 2019).",
+    "description_pt": "Deslocamento UTC padrão (o Brasil não tem horário de verão desde 2019).",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "mesh_url",
+    "type": "string",
+    "description_en": "IBGE API v3 URL for the municipality boundary. Add ?formato=application/vnd.geo+json for GeoJSON.",
+    "description_pt": "URL da API v3 do IBGE com a malha do município. Acrescente ?formato=application/vnd.geo+json para GeoJSON.",
+    "standard": "IBGE API",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "ibge_code",
+    "type": "integer",
+    "description_en": "IBGE state code (2 digits). Primary key.",
+    "description_pt": "Código IBGE da UF (2 dígitos). Chave primária.",
+    "standard": "IBGE",
+    "origin": "source"
+  },
+  {
+    "table": "estados.csv",
+    "name": "uf",
+    "type": "string",
+    "description_en": "State abbreviation.",
+    "description_pt": "Sigla da UF.",
+    "standard": "IBGE",
+    "origin": "source"
+  },
+  {
+    "table": "estados.csv",
+    "name": "name",
+    "type": "string",
+    "description_en": "State name.",
+    "description_pt": "Nome da UF.",
+    "standard": "IBGE",
+    "origin": "source"
+  },
+  {
+    "table": "estados.csv",
+    "name": "region",
+    "type": "string",
+    "description_en": "Region (from the first digit of ibge_code).",
+    "description_pt": "Região (pelo primeiro dígito de ibge_code).",
+    "standard": "IBGE",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "capital",
+    "type": "string",
+    "description_en": "Capital city (from municipios.csv).",
+    "description_pt": "Capital (de municipios.csv).",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "latitude",
+    "type": "float",
+    "description_en": "Approximate latitude of the state centre.",
+    "description_pt": "Latitude aproximada do centro da UF.",
+    "standard": "WGS 84",
+    "origin": "source"
+  },
+  {
+    "table": "estados.csv",
+    "name": "longitude",
+    "type": "float",
+    "description_en": "Approximate longitude of the state centre.",
+    "description_pt": "Longitude aproximada do centro da UF.",
+    "standard": "WGS 84",
+    "origin": "source"
+  },
+  {
+    "table": "estados.csv",
+    "name": "article",
+    "type": "string",
+    "description_en": "Definite article used with the name: o, a, or empty when the name takes none (Goiás, São Paulo).",
+    "description_pt": "Artigo usado com o nome: o, a, ou vazio quando o nome não leva artigo (Goiás, São Paulo).",
+    "standard": "—",
+    "origin": "Caique Dourado, corrected"
+  },
+  {
+    "table": "estados.csv",
+    "name": "prep_em",
+    "type": "string",
+    "description_en": "\"em\" + article: no, na or em (no Acre, na Bahia, em Goiás).",
+    "description_pt": "\"em\" + artigo: no, na ou em (no Acre, na Bahia, em Goiás).",
+    "standard": "—",
+    "origin": "Caique Dourado"
+  },
+  {
+    "table": "estados.csv",
+    "name": "prep_de",
+    "type": "string",
+    "description_en": "\"de\" + article: do, da or de (do Acre, da Bahia, de Goiás).",
+    "description_pt": "\"de\" + artigo: do, da ou de (do Acre, da Bahia, de Goiás).",
+    "standard": "—",
+    "origin": "Caique Dourado"
+  },
+  {
+    "table": "estados.csv",
+    "name": "name_with_em",
+    "type": "string",
+    "description_en": "Ready-made phrase: prep_em + name (\"na Bahia\").",
+    "description_pt": "Expressão pronta: prep_em + nome (\"na Bahia\").",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "name_with_de",
+    "type": "string",
+    "description_en": "Ready-made phrase: prep_de + name (\"de São Paulo\").",
+    "description_pt": "Expressão pronta: prep_de + nome (\"de São Paulo\").",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "timezone",
+    "type": "string",
+    "description_en": "Canonical IANA time zone of the capital.",
+    "description_pt": "Fuso IANA canônico da capital.",
+    "standard": "IANA tzdb",
+    "origin": "corrected"
+  },
+  {
+    "table": "estados.csv",
+    "name": "mesh_url",
+    "type": "string",
+    "description_en": "IBGE API v3 URL for the state boundary.",
+    "description_pt": "URL da API v3 do IBGE com a malha da UF.",
+    "standard": "IBGE API",
+    "origin": "derived"
+  }
+]

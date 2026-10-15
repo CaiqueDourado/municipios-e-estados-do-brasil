@@ -1,0 +1,40 @@
+{
+  "slug": "municipios-e-estados-do-brasil",
+  "title": "Brazilian municipalities and states: IBGE and SIAFI codes, DDD, time zones, coordinates and grammar for text generation",
+  "title_pt": "Municípios e estados do Brasil: códigos IBGE e SIAFI, DDD, fusos, coordenadas e gramática para geração de texto",
+  "kaggle_user": "caiquedourado",
+  "kaggle_title": "Municípios e Estados do Brasil (IBGE, DDD, fusos)",
+  "kaggle_subtitle": "5,570 municipalities and 27 states: IBGE/SIAFI codes, DDD, IANA zones, grammar",
+  "kaggle_description_file": "docs/kaggle-description.md",
+  "kaggle_license": "CC-BY-4.0",
+  "keywords": [
+    "brazil",
+    "geography",
+    "cities and urban areas",
+    "tabular"
+  ],
+  "tables": [
+    {
+      "file": "municipios.csv",
+      "json": true,
+      "description": "All 5,570 Brazilian municipalities: IBGE and SIAFI codes, state, region, capital flag, coordinates, DDD, IANA time zone and IBGE boundary URL.",
+      "description_pt": "Os 5.570 municípios do Brasil: códigos IBGE e SIAFI, UF, região, capital, coordenadas, DDD, fuso IANA e URL da malha do IBGE."
+    },
+    {
+      "file": "estados.csv",
+      "json": true,
+      "description": "The 27 federative units: IBGE code, region, capital, centre coordinates, time zone and the prepositions and article each name takes in Portuguese.",
+      "description_pt": "As 27 unidades da federação: código IBGE, região, capital, coordenadas, fuso e as preposições e o artigo que cada nome leva em português."
+    }
+  ],
+  "conventions": [
+    "- Encoding UTF-8 without BOM, comma separated, header in the first line, `\\n` line endings.",
+    "- Decimal point is `.`. Booleans are `True` / `False`.",
+    "- `ibge_code` joins with any IBGE table; `siafi_code` joins with Treasury (SIAFI) data; `uf` joins `municipios.csv` to `estados.csv`."
+  ],
+  "conventions_pt": [
+    "- Codificação UTF-8 sem BOM, separador vírgula, cabeçalho na primeira linha, quebra de linha `\\n`.",
+    "- Separador decimal é o ponto `.`. Booleanos são `True` / `False`.",
+    "- `ibge_code` cruza com qualquer tabela do IBGE; `siafi_code`, com dados do Tesouro (SIAFI); `uf` liga `municipios.csv` a `estados.csv`."
+  ]
+}

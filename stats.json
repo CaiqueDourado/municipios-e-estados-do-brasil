@@ -1,0 +1,216 @@
+{
+  "dataset": "municipios-e-estados-do-brasil",
+  "municipios": {
+    "rows": 5570,
+    "by_uf": {
+      "AC": 22,
+      "AL": 102,
+      "AM": 62,
+      "AP": 16,
+      "BA": 417,
+      "CE": 184,
+      "DF": 1,
+      "ES": 78,
+      "GO": 246,
+      "MA": 217,
+      "MG": 853,
+      "MS": 79,
+      "MT": 141,
+      "PA": 144,
+      "PB": 223,
+      "PE": 185,
+      "PI": 224,
+      "PR": 399,
+      "RJ": 92,
+      "RN": 167,
+      "RO": 52,
+      "RR": 15,
+      "RS": 497,
+      "SC": 295,
+      "SE": 75,
+      "SP": 645,
+      "TO": 139
+    },
+    "fields": {
+      "ibge_code": {
+        "dtype": "int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5570
+      },
+      "name": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5295
+      },
+      "name_ascii": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5288
+      },
+      "slug": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5570
+      },
+      "uf": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "state_ibge_code": {
+        "dtype": "int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "region": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5
+      },
+      "is_capital": {
+        "dtype": "bool",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 2
+      },
+      "latitude": {
+        "dtype": "float64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5526
+      },
+      "longitude": {
+        "dtype": "float64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5476
+      },
+      "ddd": {
+        "dtype": "int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 67
+      },
+      "siafi_code": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5570
+      },
+      "timezone": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 15
+      },
+      "utc_offset": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 4
+      },
+      "mesh_url": {
+        "dtype": "str",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5570
+      }
+    }
+  },
+  "estados": {
+    "rows": 27,
+    "fields": {
+      "ibge_code": {
+        "dtype": "int64",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "uf": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "name": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "region": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 5
+      },
+      "capital": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "latitude": {
+        "dtype": "float64",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "longitude": {
+        "dtype": "float64",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "article": {
+        "dtype": "str",
+        "non_null": 18,
+        "null_pct": 33.33,
+        "distinct": 2
+      },
+      "prep_em": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 3
+      },
+      "prep_de": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 3
+      },
+      "name_with_em": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "name_with_de": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "timezone": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 13
+      },
+      "mesh_url": {
+        "dtype": "str",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      }
+    }
+  }
+}
