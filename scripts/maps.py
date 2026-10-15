@@ -4,9 +4,13 @@ Usage:  python scripts/maps.py   (needs matplotlib; run after build.py)
 
 docs/img/mapa-fusos.png    every municipal seat, shaded by UTC offset
 docs/img/mapa-regioes.png  small multiples, one panel per region
+docs/img/mapa-estados.png  state boundaries shaded by UTC offset (only if data/estados.geojson exists;
+                           create it with scripts/fetch_meshes.py)
 """
 
 from __future__ import annotations
+
+import json
 
 from pathlib import Path
 
@@ -14,6 +18,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
+from matplotlib.patches import Polygon  # noqa: E402
 import pandas as pd  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,12 +77,55 @@ def regions_map(cities: pd.DataFrame) -> None:
     plt.close(fig)
 
 
+ZONE_OFFSET = {
+    "America/Noronha": "-02:00", "America/Rio_Branco": "-05:00", "America/Eirunepe": "-05:00",
+    "America/Manaus": "-04:00", "America/Boa_Vista": "-04:00", "America/Porto_Velho": "-04:00",
+    "America/Cuiaba": "-04:00", "America/Campo_Grande": "-04:00",
+}
+
+
+def rings(geometry: dict) -> list[list[list[float]]]:
+    """Outer rings of a Polygon or MultiPolygon."""
+    if geometry["type"] == "Polygon":
+        return [geometry["coordinates"][0]]
+    return [polygon[0] for polygon in geometry["coordinates"]]
+
+
+def states_map(states: pd.DataFrame) -> bool:
+    path = ROOT / "data" / "estados.geojson"
+    if not path.exists():
+        print("data/estados.geojson not found: run scripts/fetch_meshes.py to draw the state map")
+        return False
+    features = json.loads(path.read_text(encoding="utf-8"))["features"]
+    fig, ax = plt.subplots(figsize=(7.5, 7.5), dpi=120, facecolor=SURFACE)
+    style(ax)
+    for feature in features:
+        offset = ZONE_OFFSET.get(feature["properties"]["timezone"], "-03:00")
+        for ring in rings(feature["geometry"]):
+            ax.add_patch(Polygon(ring, closed=True, facecolor=OFFSET_COLOURS[offset], edgecolor=SURFACE, linewidth=1.2))
+    for row in states.itertuples():
+        light = ZONE_OFFSET.get(row.timezone, "-03:00") in ("-02:00", "-03:00")
+        ax.text(row.longitude, row.latitude, row.uf, ha="center", va="center", fontsize=8,
+                fontweight="bold", color=INK if light else SURFACE)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=OFFSET_COLOURS[o]) for o in ("-03:00", "-04:00", "-05:00")]
+    labels = ["UTC−3", "UTC−4", "UTC−5 (Acre)"]
+    ax.legend(handles, labels, loc="lower left", frameon=False, fontsize=9, labelcolor=INK_2,
+              title="Fuso da capital", title_fontsize=9)
+    ax.set_title("Estados e fusos horários", loc="left", fontsize=15, fontweight="bold", color=INK, pad=12)
+    fig.tight_layout()
+    fig.savefig(IMG / "mapa-estados.png", facecolor=SURFACE)
+    plt.close(fig)
+    return True
+
+
 def main() -> None:
     IMG.mkdir(parents=True, exist_ok=True)
     cities = pd.read_parquet(ROOT / "data" / "municipios.parquet")
     offsets_map(cities)
     regions_map(cities)
     print("docs/img/mapa-fusos.png, docs/img/mapa-regioes.png")
+    if states_map(pd.read_csv(ROOT / "data" / "estados.csv", keep_default_na=False)):
+        print("docs/img/mapa-estados.png")
 
 
 if __name__ == "__main__":

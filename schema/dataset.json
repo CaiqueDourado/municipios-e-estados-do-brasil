@@ -41,6 +41,10 @@
     {
       "path": "municipios.geojson",
       "description": "All 5,570 municipal seats as GeoJSON points (properties: ibge_code, name, uf, region, ddd, timezone, is_capital)."
+    },
+    {
+      "path": "estados.geojson",
+      "description": "Boundaries of the 27 states (IBGE API v3, minimum quality) as GeoJSON polygons, with uf, name, region, capital and timezone."
     }
   ]
 }

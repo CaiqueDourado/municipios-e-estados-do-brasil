@@ -55,7 +55,8 @@ flowchart LR
 ```bash
 pip install -r requirements.txt
 python scripts/build.py && python scripts/validate.py && python scripts/docs.py
-python scripts/maps.py   # README maps, needs matplotlib
+python scripts/fetch_meshes.py   # state boundaries from the IBGE API (network)
+python scripts/maps.py           # README maps, needs matplotlib
 ```
 
 ## 4. Validation

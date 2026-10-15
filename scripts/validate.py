@@ -5,6 +5,7 @@ Usage:  python scripts/validate.py
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -101,6 +102,13 @@ def main() -> int:
     check((states["article"] == states["prep_em"].map(article)).all(), "article inconsistent with prep_em")
     check((states["prep_de"] == states["prep_em"].map(de)).all(), "prep_de inconsistent with prep_em")
     check((states["name_with_em"] == states["prep_em"] + " " + states["name"]).all(), "name_with_em inconsistent")
+
+    # Optional boundary file produced by scripts/fetch_meshes.py.
+    meshes = ROOT / "data" / "estados.geojson"
+    if meshes.exists():
+        features = json.loads(meshes.read_text(encoding="utf-8"))["features"]
+        codes = sorted(f["properties"]["ibge_code"] for f in features)
+        check(codes == sorted(states["ibge_code"]), "estados.geojson does not have exactly the 27 states")
 
     for message in failures:
         print("FAIL", message)
