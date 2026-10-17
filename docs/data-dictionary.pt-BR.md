@@ -4,7 +4,7 @@ Gerado por `scripts/docs.py` a partir de `schema/columns.json`. Tipos, nulos e e
 
 ## `municipios.csv`
 
-Os 5.570 municípios do Brasil: códigos IBGE e SIAFI, UF, região, capital, coordenadas, DDD, fuso IANA e URL da malha do IBGE.
+Os 5.570 municípios do Brasil: códigos IBGE e SIAFI, UF, região, capital, coordenadas, DDD, fuso IANA, URL da malha do IBGE, divisões regionais, população e área do Censo 2022, estimativa de população mais recente, altitude da sede e totais de hidrografia da FBDS.
 
 | Coluna | Tipo | Nulos | Exemplo | Descrição | Padrão | Origem |
 |---|---|---|---|---|---|---|

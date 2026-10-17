@@ -3,8 +3,8 @@
   "title": "Brazilian municipalities and states: IBGE and SIAFI codes, DDD, time zones, coordinates and grammar for text generation",
   "title_pt": "Municípios e estados do Brasil: códigos IBGE e SIAFI, DDD, fusos, coordenadas e gramática para geração de texto",
   "kaggle_user": "caiquedourado",
-  "kaggle_title": "Municípios e Estados do Brasil (IBGE, DDD, fusos)",
-  "kaggle_subtitle": "5,570 municipalities and 27 states: IBGE/SIAFI codes, DDD, IANA zones, grammar",
+  "kaggle_title": "Municípios e Estados do Brasil: IBGE, Censo, rios",
+  "kaggle_subtitle": "5,570 municipalities, 27 states: IBGE codes, DDD, Census 2022, elevation, rivers",
   "kaggle_description_file": "docs/kaggle-description.md",
   "kaggle_license": "other",
   "keywords": [
@@ -17,8 +17,8 @@
     {
       "file": "municipios.csv",
       "json": true,
-      "description": "All 5,570 Brazilian municipalities: IBGE and SIAFI codes, state, region, capital flag, coordinates, DDD, IANA time zone and IBGE boundary URL.",
-      "description_pt": "Os 5.570 municípios do Brasil: códigos IBGE e SIAFI, UF, região, capital, coordenadas, DDD, fuso IANA e URL da malha do IBGE."
+      "description": "All 5,570 Brazilian municipalities: IBGE and SIAFI codes, state, region, capital flag, coordinates, DDD, IANA time zone, IBGE boundary URL, regional divisions, 2022 Census population and area, latest population estimate, seat elevation and FBDS hydrography totals.",
+      "description_pt": "Os 5.570 municípios do Brasil: códigos IBGE e SIAFI, UF, região, capital, coordenadas, DDD, fuso IANA, URL da malha do IBGE, divisões regionais, população e área do Censo 2022, estimativa de população mais recente, altitude da sede e totais de hidrografia da FBDS."
     },
     {
       "file": "estados.csv",
