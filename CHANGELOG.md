@@ -9,6 +9,7 @@ Versions follow [Semantic Versioning](https://semver.org/): a new major version 
 - `municipality_count`, `population_2022` and `area_km2` in `estados`.
 - `scripts/fetch_enrichment.py` (raw answers saved in `raw/enrichment/`) and `scripts/enrich.py`.
 - Hydrography totals per municipality from FBDS (`hydro_*` columns and state sums), via `scripts/fetch_fbds.py`: 5,470 of 5,570 municipalities; the 100 without an FBDS folder are listed in `docs/hydro-missing.csv`.
+- `docs/img/mapa-hidrografia.png`: watercourse density per municipality (`scripts/maps.py`).
 - `index.html`: interactive explorer for GitHub Pages, with live weather forecasts from BrasilAPI / CPTEC.
 
 ### Not included

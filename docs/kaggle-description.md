@@ -2,6 +2,8 @@
 
 ![States by time zone](https://raw.githubusercontent.com/CaiqueDourado/municipios-e-estados-do-brasil/main/docs/img/mapa-estados.png)
 
+![Watercourse density per municipality (FBDS)](https://raw.githubusercontent.com/CaiqueDourado/municipios-e-estados-do-brasil/main/docs/img/mapa-hidrografia.png)
+
 ![Municipalities by time zone](https://raw.githubusercontent.com/CaiqueDourado/municipios-e-estados-do-brasil/main/docs/img/mapa-fusos.png)
 
 ![Municipalities by region](https://raw.githubusercontent.com/CaiqueDourado/municipios-e-estados-do-brasil/main/docs/img/mapa-regioes.png)

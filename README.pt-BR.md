@@ -43,6 +43,9 @@ Toda linha tem coordenadas, então os dados desenham o Brasil sozinhos. Duas for
 
 ![Estados por fuso horário](docs/img/mapa-estados.png)
 
+![Densidade de cursos d'água por município](docs/img/mapa-hidrografia.png)
+
+- **Hidrografia:** cada sede municipal colorida pelos km de cursos d'água por km² de área, do mapeamento em alta resolução da FBDS. As sedes em cinza (Pampa, Pantanal e Fernando de Noronha) não têm mapeamento da FBDS; a lista está em [`docs/hydro-missing.csv`](docs/hydro-missing.csv).
 - **Contornos das UFs:** abra [`data/estados.geojson`](data/estados.geojson) para um mapa interativo dos 27 estados (polígonos da API v3 do IBGE, ligados a `estados.csv`).
 
 `scripts/fetch_meshes.py` baixa as malhas da API do IBGE (`--municipios` baixa também os polígonos dos 5.570 municípios); `scripts/maps.py` desenha as imagens acima.

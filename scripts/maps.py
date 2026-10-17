@@ -6,6 +6,7 @@ docs/img/mapa-fusos.png    every municipal seat, shaded by UTC offset
 docs/img/mapa-regioes.png  small multiples, one panel per region
 docs/img/mapa-estados.png  state boundaries shaded by UTC offset (only if data/estados.geojson exists;
                            create it with scripts/fetch_meshes.py)
+docs/img/mapa-hidrografia.png  every municipal seat shaded by watercourse density (FBDS km per km² of area)
 """
 
 from __future__ import annotations
@@ -118,6 +119,47 @@ def states_map(states: pd.DataFrame) -> bool:
     return True
 
 
+# Watercourse density classes (km of rivers per km² of area), close to the quartiles of the 5,470 municipalities.
+DENSITY_BREAKS = [0.9, 1.3, 1.8]
+DENSITY_COLOURS = ["#86b6ef", "#3987e5", "#1c5cab", "#0d366b"]  # same validated one-hue ramp, light = low
+
+
+def fmt(value: float) -> str:
+    return f"{value:.1f}".replace(".", ",")
+
+
+def hydro_map(cities: pd.DataFrame) -> bool:
+    if cities["hydro_rivers_km"].notna().sum() == 0:
+        print("no hydrography in data/: run scripts/fetch_fbds.py and build.py to draw the hydrography map")
+        return False
+    density = cities["hydro_rivers_km"].astype("float") / cities["area_km2"].astype("float")
+    fig, ax = plt.subplots(figsize=(7.5, 7.5), dpi=120, facecolor=SURFACE)
+    style(ax)
+    outlines = ROOT / "data" / "estados.geojson"
+    if outlines.exists():
+        for feature in json.loads(outlines.read_text(encoding="utf-8"))["features"]:
+            for ring in rings(feature["geometry"]):
+                ax.add_patch(Polygon(ring, closed=True, fill=False, edgecolor=MUTED, linewidth=0.6, zorder=1))
+    edges = [-1.0, *DENSITY_BREAKS, float("inf")]
+    names = [f"menos de {fmt(DENSITY_BREAKS[0])}", f"{fmt(DENSITY_BREAKS[0])} a {fmt(DENSITY_BREAKS[1])}",
+             f"{fmt(DENSITY_BREAKS[1])} a {fmt(DENSITY_BREAKS[2])}", f"{fmt(DENSITY_BREAKS[2])} ou mais"]
+    for low, high, colour, name in zip(edges, edges[1:], DENSITY_COLOURS, names):
+        group = cities[(density >= low) & (density < high)]
+        count = f"{len(group):,}".replace(",", ".")
+        ax.scatter(group["longitude"], group["latitude"], s=4, color=colour, linewidth=0, zorder=3,
+                   label=f"{name} ({count})")
+    missing = density.isna()  # drawn last so it ends the legend; Pampa, Pantanal and Noronha
+    ax.scatter(cities.loc[missing, "longitude"], cities.loc[missing, "latitude"], s=6, color="#b9b8b2", linewidth=0,
+               zorder=2, label=f"sem mapeamento FBDS ({missing.sum()})")
+    ax.set_title("Densidade de cursos d'água", loc="left", fontsize=15, fontweight="bold", color=INK, pad=12)
+    legend = ax.legend(loc="lower right", frameon=False, fontsize=9, markerscale=3, labelcolor=INK_2)  # over the ocean
+    legend.set_title("km de rios por km² de área", prop={"size": 9})
+    fig.tight_layout()
+    fig.savefig(IMG / "mapa-hidrografia.png", facecolor=SURFACE)
+    plt.close(fig)
+    return True
+
+
 def main() -> None:
     IMG.mkdir(parents=True, exist_ok=True)
     cities = pd.read_parquet(ROOT / "data" / "municipios.parquet")
@@ -126,6 +168,8 @@ def main() -> None:
     print("docs/img/mapa-fusos.png, docs/img/mapa-regioes.png")
     if states_map(pd.read_csv(ROOT / "data" / "estados.csv", keep_default_na=False)):
         print("docs/img/mapa-estados.png")
+    if hydro_map(cities):
+        print("docs/img/mapa-hidrografia.png")
 
 
 if __name__ == "__main__":

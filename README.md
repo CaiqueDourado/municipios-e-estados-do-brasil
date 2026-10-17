@@ -51,6 +51,9 @@ Every row has coordinates, so the data draws Brazil by itself. Two ways to explo
 
 ![States by time zone](docs/img/mapa-estados.png)
 
+![Watercourse density per municipality](docs/img/mapa-hidrografia.png)
+
+- **Hydrography:** each municipal seat shaded by km of watercourses per km² of area, from FBDS high-resolution mapping. Gray seats (Pampa, Pantanal and Fernando de Noronha) have no FBDS mapping; the list is in [`docs/hydro-missing.csv`](docs/hydro-missing.csv).
 - **State boundaries:** open [`data/estados.geojson`](data/estados.geojson) for an interactive map of the 27 states (IBGE API v3 polygons, joined to `estados.csv`).
 
 `scripts/fetch_meshes.py` downloads the boundaries from the IBGE API (`--municipios` also fetches the 5,570 municipal polygons); `scripts/maps.py` draws the images above.
