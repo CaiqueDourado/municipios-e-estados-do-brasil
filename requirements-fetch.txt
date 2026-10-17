@@ -1,0 +1,5 @@
+# Extra packages for the scripts that download data (not needed to rebuild from raw/)
+matplotlib>=3.8
+pyshp>=2.3
+pyproj>=3.6
+truststore>=0.9

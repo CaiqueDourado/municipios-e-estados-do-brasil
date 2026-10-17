@@ -14,6 +14,9 @@
 - `municipios.geojson`: all municipal seats as GeoJSON points, ready for QGIS, Kepler.gl, Folium or any web map.
 - `estados.geojson`: boundaries of the 27 states (IBGE API v3) as GeoJSON polygons, joined to `estados.csv`.
 
+- Enrichment joined by IBGE code: regional divisions, 2022 Census population, area and density, latest population estimate, seat elevation and FBDS hydrography totals (springs, km of rivers, water bodies) for 5,470 municipalities (98%).
+- Interactive explorer: https://caiquedourado.github.io/municipios-e-estados-do-brasil/
+
 ## Why another municipalities table
 
 - **Joins:** IBGE code for census and IBGE data, SIAFI code for federal transfer and Treasury data, DDD for phone data.

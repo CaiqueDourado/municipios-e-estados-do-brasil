@@ -23,6 +23,27 @@ All 5,570 Brazilian municipalities: IBGE and SIAFI codes, state, region, capital
 | `timezone` | string | 0.0% | `America/Sao_Paulo` | Canonical IANA time zone (America/Sao_Paulo, America/Manaus, America/Eirunepe…). | IANA tzdb | corrected |
 | `utc_offset` | string | 0.0% | `-03:00` | Standard UTC offset (Brazil has no daylight saving time since 2019). | — | derived |
 | `mesh_url` | string | 0.0% | `https://servicodados.ibge.gov.br/api/…` | IBGE API v3 URL for the municipality boundary. Add ?formato=application/vnd.geo+json for GeoJSON. | IBGE API | derived |
+| `immediate_region_code` | integer | 0.0% | `310013` | IBGE immediate geographic region code (2017 regional division, current). | IBGE | IBGE Localidades API |
+| `immediate_region` | string | 0.0% | `Teófilo Otoni` | Immediate geographic region name. | IBGE | IBGE Localidades API |
+| `intermediate_region_code` | integer | 0.0% | `3103` | IBGE intermediate geographic region code (2017 division). | IBGE | IBGE Localidades API |
+| `intermediate_region` | string | 0.0% | `Teófilo Otoni` | Intermediate geographic region name. | IBGE | IBGE Localidades API |
+| `microregion_code` | integer | 0.0% | `31012` | IBGE microregion code (1989 division, discontinued in 2017 but still used in older statistics). | IBGE | IBGE Localidades API |
+| `microregion` | string | 0.0% | `Araçuaí` | Microregion name. | IBGE | IBGE Localidades API |
+| `mesoregion_code` | integer | 0.0% | `3103` | IBGE mesoregion code (1989 division). | IBGE | IBGE Localidades API |
+| `mesoregion` | string | 0.0% | `Jequitinhonha` | Mesoregion name. | IBGE | IBGE Localidades API |
+| `population_2022` | integer | 0.0% | `17334` | Resident population, 2022 Census. | IBGE SIDRA 4714 | IBGE SIDRA API |
+| `area_km2` | float | 0.0% | `544.38` | Territorial area in km², 2022. | IBGE SIDRA 4714 | IBGE SIDRA API |
+| `density_2022` | float | 0.0% | `31.84` | Inhabitants per km², 2022 Census. | IBGE SIDRA 4714 | IBGE SIDRA API |
+| `population_estimate` | integer | 0.0% | `17394` | Latest official IBGE population estimate. | IBGE SIDRA 6579 | IBGE SIDRA API |
+| `population_estimate_year` | integer | 0.0% | `2026` | Reference year of population_estimate. | IBGE SIDRA 6579 | IBGE SIDRA API |
+| `elevation_m` | integer | 0.0% | `685` | Elevation of the municipal seat coordinate, metres (Copernicus DEM, 90 m, via Open-Meteo). | Copernicus DEM | Open-Meteo Elevation API |
+| `hydro_springs` | integer | 1.8% | `403` | Number of springs (nascentes) mapped by FBDS in the municipality. | FBDS | FBDS (geo.fbds.org.br) |
+| `hydro_rivers_km` | float | 1.8% | `1052.02` | Total length of single-line watercourses (rivers and streams up to ~10 m wide), km, geodesic. | FBDS | FBDS, computed |
+| `hydro_double_rivers_ha` | float | 1.8% | `196.74` | Area of wide rivers mapped as polygons (double-line rivers), hectares. | FBDS | FBDS, computed |
+| `hydro_water_bodies` | integer | 1.8% | `61` | Number of water bodies (lakes, ponds, reservoirs). | FBDS | FBDS |
+| `hydro_water_bodies_ha` | float | 1.8% | `43.54` | Total area of water bodies, hectares. | FBDS | FBDS, computed |
+| `hydro_artificial_water_bodies` | integer | 1.8% | `59` | Water bodies classified by FBDS as artificial (dams, reservoirs, ponds). | FBDS | FBDS |
+| `hydro_source_updated` | string | 1.8% | `2023-08-22` | Last modification date of the FBDS files used (YYYY-MM-DD). | ISO 8601 | FBDS |
 
 ## `estados.csv`
 
@@ -44,6 +65,11 @@ The 27 federative units: IBGE code, region, capital, centre coordinates, time zo
 | `name_with_de` | string | 0.0% | `de Alagoas` | Ready-made phrase: prep_de + name ("de São Paulo"). | — | derived |
 | `timezone` | string | 0.0% | `America/Maceio` | Canonical IANA time zone of the capital. | IANA tzdb | corrected |
 | `mesh_url` | string | 0.0% | `https://servicodados.ibge.gov.br/api/…` | IBGE API v3 URL for the state boundary. | IBGE API | derived |
+| `municipality_count` | integer | 0.0% | `102` | Number of municipalities in the state. | — | derived |
+| `population_2022` | integer | 0.0% | `3127683` | Sum of the municipal populations, 2022 Census. | IBGE SIDRA 4714 | derived |
+| `area_km2` | float | 0.0% | `27830.7` | Sum of the municipal areas, km². | IBGE SIDRA 4714 | derived |
+| `hydro_springs` | integer | 0.0% | `14664` | Sum of the municipal spring counts (FBDS). | FBDS | derived |
+| `hydro_rivers_km` | float | 0.0% | `31258.51` | Sum of the municipal single-line watercourse lengths, km (FBDS). | FBDS | derived |
 
 ## Conventions
 

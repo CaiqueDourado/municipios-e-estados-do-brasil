@@ -23,6 +23,27 @@ Os 5.570 municípios do Brasil: códigos IBGE e SIAFI, UF, região, capital, coo
 | `timezone` | string | 0,0% | `America/Sao_Paulo` | Fuso IANA canônico (America/Sao_Paulo, America/Manaus, America/Eirunepe…). | IANA tzdb | corrigido |
 | `utc_offset` | string | 0,0% | `-03:00` | Deslocamento UTC padrão (o Brasil não tem horário de verão desde 2019). | — | derivado |
 | `mesh_url` | string | 0,0% | `https://servicodados.ibge.gov.br/api/…` | URL da API v3 do IBGE com a malha do município. Acrescente ?formato=application/vnd.geo+json para GeoJSON. | IBGE API | derivado |
+| `immediate_region_code` | integer | 0,0% | `310013` | Código da região geográfica imediata do IBGE (divisão regional de 2017, a atual). | IBGE | IBGE Localidades API |
+| `immediate_region` | string | 0,0% | `Teófilo Otoni` | Nome da região geográfica imediata. | IBGE | IBGE Localidades API |
+| `intermediate_region_code` | integer | 0,0% | `3103` | Código da região geográfica intermediária do IBGE (divisão de 2017). | IBGE | IBGE Localidades API |
+| `intermediate_region` | string | 0,0% | `Teófilo Otoni` | Nome da região geográfica intermediária. | IBGE | IBGE Localidades API |
+| `microregion_code` | integer | 0,0% | `31012` | Código da microrregião do IBGE (divisão de 1989, substituída em 2017, ainda usada em estatísticas antigas). | IBGE | IBGE Localidades API |
+| `microregion` | string | 0,0% | `Araçuaí` | Nome da microrregião. | IBGE | IBGE Localidades API |
+| `mesoregion_code` | integer | 0,0% | `3103` | Código da mesorregião do IBGE (divisão de 1989). | IBGE | IBGE Localidades API |
+| `mesoregion` | string | 0,0% | `Jequitinhonha` | Nome da mesorregião. | IBGE | IBGE Localidades API |
+| `population_2022` | integer | 0,0% | `17334` | População residente, Censo 2022. | IBGE SIDRA 4714 | IBGE SIDRA API |
+| `area_km2` | float | 0,0% | `544.38` | Área territorial em km², 2022. | IBGE SIDRA 4714 | IBGE SIDRA API |
+| `density_2022` | float | 0,0% | `31.84` | Habitantes por km², Censo 2022. | IBGE SIDRA 4714 | IBGE SIDRA API |
+| `population_estimate` | integer | 0,0% | `17394` | Estimativa oficial de população mais recente do IBGE. | IBGE SIDRA 6579 | IBGE SIDRA API |
+| `population_estimate_year` | integer | 0,0% | `2026` | Ano de referência de population_estimate. | IBGE SIDRA 6579 | IBGE SIDRA API |
+| `elevation_m` | integer | 0,0% | `685` | Altitude da coordenada da sede, em metros (Copernicus DEM, 90 m, via Open-Meteo). | Copernicus DEM | Open-Meteo Elevation API |
+| `hydro_springs` | integer | 1,8% | `403` | Quantidade de nascentes mapeadas pela FBDS no município. | FBDS | FBDS (geo.fbds.org.br) |
+| `hydro_rivers_km` | float | 1,8% | `1052.02` | Comprimento total dos cursos d'água de linha simples (rios e córregos até ~10 m de largura), em km, geodésico. | FBDS | FBDS, computed |
+| `hydro_double_rivers_ha` | float | 1,8% | `196.74` | Área dos rios largos mapeados como polígonos (rios de margem dupla), em hectares. | FBDS | FBDS, computed |
+| `hydro_water_bodies` | integer | 1,8% | `61` | Quantidade de massas d'água (lagos, lagoas, açudes, represas). | FBDS | FBDS |
+| `hydro_water_bodies_ha` | float | 1,8% | `43.54` | Área total das massas d'água, em hectares. | FBDS | FBDS, computed |
+| `hydro_artificial_water_bodies` | integer | 1,8% | `59` | Massas d'água classificadas pela FBDS como artificiais (açudes, represas, tanques). | FBDS | FBDS |
+| `hydro_source_updated` | string | 1,8% | `2023-08-22` | Data da última modificação dos arquivos da FBDS usados (AAAA-MM-DD). | ISO 8601 | FBDS |
 
 ## `estados.csv`
 
@@ -44,6 +65,11 @@ As 27 unidades da federação: código IBGE, região, capital, coordenadas, fuso
 | `name_with_de` | string | 0,0% | `de Alagoas` | Expressão pronta: prep_de + nome ("de São Paulo"). | — | derivado |
 | `timezone` | string | 0,0% | `America/Maceio` | Fuso IANA canônico da capital. | IANA tzdb | corrigido |
 | `mesh_url` | string | 0,0% | `https://servicodados.ibge.gov.br/api/…` | URL da API v3 do IBGE com a malha da UF. | IBGE API | derivado |
+| `municipality_count` | integer | 0,0% | `102` | Quantidade de municípios na UF. | — | derivado |
+| `population_2022` | integer | 0,0% | `3127683` | Soma das populações municipais, Censo 2022. | IBGE SIDRA 4714 | derivado |
+| `area_km2` | float | 0,0% | `27830.7` | Soma das áreas municipais, em km². | IBGE SIDRA 4714 | derivado |
+| `hydro_springs` | integer | 0,0% | `14664` | Soma das nascentes dos municípios (FBDS). | FBDS | derivado |
+| `hydro_rivers_km` | float | 0,0% | `31258.51` | Soma dos comprimentos de cursos d'água de linha simples dos municípios, em km (FBDS). | FBDS | derivado |
 
 ## Convenções
 

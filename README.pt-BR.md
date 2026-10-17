@@ -7,7 +7,7 @@
 
 **Os 5.570 municípios e as 27 UFs do Brasil** com códigos IBGE e SIAFI, DDD, fusos horários IANA, coordenadas, slug e a gramática de cada estado ("no Acre", "em Goiás") para geração de texto. CSV, Parquet e JSON.
 
-[Read in English](README.md)
+[Read in English](README.md) · **[Abrir o explorador interativo](https://caiquedourado.github.io/municipios-e-estados-do-brasil/)**
 
 ## Prévia
 
@@ -25,6 +25,8 @@
 | GO | Goiás | Goiânia | | em Goiás | de Goiás |
 
 ## Mapa
+
+**[Explorador interativo](https://caiquedourado.github.io/municipios-e-estados-do-brasil/)**: escolha qualquer município para ver o contorno, os dados e a previsão do tempo. Troque o código no endereço (`?ibge=2927408`) para ir direto a outro.
 
 ![Municípios por fuso horário](docs/img/mapa-fusos.png)
 
@@ -63,6 +65,7 @@ for e in estados.itertuples():
 
 - **Cruza com dados públicos:** `ibge_code` com IBGE e censo, `siafi_code` com Tesouro e transferências federais, `ddd` com telefonia.
 - **Fusos corretos:** usa 15 fusos IANA canônicos. Muitas tabelas usam só `America/Sao_Paulo` e mais três; o deslocamento de hoje fica certo, mas o histórico fica errado, porque os estados tinham regras de horário de verão diferentes até 2019.
+- **Enriquecida com APIs públicas:** divisões regionais do IBGE (regiões imediata, intermediária, micro e mesorregião), população, área e densidade do Censo 2022, estimativa de população mais recente, altitude da sede e totais de hidrografia da FBDS (nascentes, km de rios, massas d'água) para 98% dos municípios. As respostas brutas ficam versionadas em `raw/enrichment/`.
 - **Pronta para geração de texto:** um template escreve "em Goiás" e "no Acre" sem exceções feitas à mão.
 - **Testada:** a cada push, são revalidados:
   - os dígitos verificadores do IBGE, aceitando só as 9 exceções oficiais;
@@ -80,6 +83,20 @@ Estas tabelas eram a base geográfica dos sites programáticos do autor, entre e
 - **Acrescentados pelo autor:** a gramática dos estados, as URLs de malha e o código SIAFI com zeros.
 
 Em 2026 a exportação foi perfilada, corrigida e ganhou um build reproduzível. Detalhes em [methodology.md](docs/methodology.md).
+
+## Como os dados são coletados
+
+O enriquecimento da v1.2 vem de fontes públicas, cada uma com seu script de coleta em [`scripts/`](scripts/). As respostas brutas ficam em [`raw/enrichment/`](raw/enrichment/), então o build roda sem rede e o CI confere que ele reproduz exatamente os arquivos de `data/`.
+
+| Script | Fonte | O que mostra |
+|---|---|---|
+| [`fetch_enrichment.py`](scripts/fetch_enrichment.py) | APIs do IBGE (Localidades, SIDRA) | Consulta a tabelas do SIDRA e leitura de respostas compactadas em gzip |
+| | Open-Meteo (altitude) | Respeita a cota da API gratuita (100 coordenadas a cada 15 s), espera o `Retry-After` quando recebe 429 e retoma de onde parou |
+| | BrasilAPI / CPTEC | Usa o XML do próprio CPTEC e, se falhar, busca cidade por cidade (serviço indisponível em out/2026, por isso fora da v1.2) |
+| [`fetch_fbds.py`](scripts/fetch_fbds.py) | FBDS, hidrografia por município | Navega listagens de pastas sem API e reprojeta os shapefiles com pyproj. Calcula comprimentos e áreas sobre o elipsoide GRS80, com diferença abaixo de 0,1% em relação à própria FBDS. Retoma de onde parou e guarda só os totais |
+| [`fetch_meshes.py`](scripts/fetch_meshes.py) | API de malhas v3 do IBGE | Gera o GeoJSON dos estados e usa o repositório de certificados do sistema quando o servidor envia a cadeia SSL incompleta |
+
+Todos os coletores se identificam pelo User-Agent, aguardam entre as requisições e não desativam a verificação TLS.
 
 ## Qualidade
 

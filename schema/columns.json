@@ -135,6 +135,195 @@
     "origin": "derived"
   },
   {
+    "table": "municipios.csv",
+    "name": "immediate_region_code",
+    "type": "integer",
+    "description_en": "IBGE immediate geographic region code (2017 regional division, current).",
+    "description_pt": "Código da região geográfica imediata do IBGE (divisão regional de 2017, a atual).",
+    "standard": "IBGE",
+    "origin": "IBGE Localidades API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "immediate_region",
+    "type": "string",
+    "description_en": "Immediate geographic region name.",
+    "description_pt": "Nome da região geográfica imediata.",
+    "standard": "IBGE",
+    "origin": "IBGE Localidades API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "intermediate_region_code",
+    "type": "integer",
+    "description_en": "IBGE intermediate geographic region code (2017 division).",
+    "description_pt": "Código da região geográfica intermediária do IBGE (divisão de 2017).",
+    "standard": "IBGE",
+    "origin": "IBGE Localidades API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "intermediate_region",
+    "type": "string",
+    "description_en": "Intermediate geographic region name.",
+    "description_pt": "Nome da região geográfica intermediária.",
+    "standard": "IBGE",
+    "origin": "IBGE Localidades API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "microregion_code",
+    "type": "integer",
+    "description_en": "IBGE microregion code (1989 division, discontinued in 2017 but still used in older statistics).",
+    "description_pt": "Código da microrregião do IBGE (divisão de 1989, substituída em 2017, ainda usada em estatísticas antigas).",
+    "standard": "IBGE",
+    "origin": "IBGE Localidades API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "microregion",
+    "type": "string",
+    "description_en": "Microregion name.",
+    "description_pt": "Nome da microrregião.",
+    "standard": "IBGE",
+    "origin": "IBGE Localidades API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "mesoregion_code",
+    "type": "integer",
+    "description_en": "IBGE mesoregion code (1989 division).",
+    "description_pt": "Código da mesorregião do IBGE (divisão de 1989).",
+    "standard": "IBGE",
+    "origin": "IBGE Localidades API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "mesoregion",
+    "type": "string",
+    "description_en": "Mesoregion name.",
+    "description_pt": "Nome da mesorregião.",
+    "standard": "IBGE",
+    "origin": "IBGE Localidades API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "population_2022",
+    "type": "integer",
+    "description_en": "Resident population, 2022 Census.",
+    "description_pt": "População residente, Censo 2022.",
+    "standard": "IBGE SIDRA 4714",
+    "origin": "IBGE SIDRA API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "area_km2",
+    "type": "float",
+    "description_en": "Territorial area in km², 2022.",
+    "description_pt": "Área territorial em km², 2022.",
+    "standard": "IBGE SIDRA 4714",
+    "origin": "IBGE SIDRA API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "density_2022",
+    "type": "float",
+    "description_en": "Inhabitants per km², 2022 Census.",
+    "description_pt": "Habitantes por km², Censo 2022.",
+    "standard": "IBGE SIDRA 4714",
+    "origin": "IBGE SIDRA API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "population_estimate",
+    "type": "integer",
+    "description_en": "Latest official IBGE population estimate.",
+    "description_pt": "Estimativa oficial de população mais recente do IBGE.",
+    "standard": "IBGE SIDRA 6579",
+    "origin": "IBGE SIDRA API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "population_estimate_year",
+    "type": "integer",
+    "description_en": "Reference year of population_estimate.",
+    "description_pt": "Ano de referência de population_estimate.",
+    "standard": "IBGE SIDRA 6579",
+    "origin": "IBGE SIDRA API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "elevation_m",
+    "type": "integer",
+    "description_en": "Elevation of the municipal seat coordinate, metres (Copernicus DEM, 90 m, via Open-Meteo).",
+    "description_pt": "Altitude da coordenada da sede, em metros (Copernicus DEM, 90 m, via Open-Meteo).",
+    "standard": "Copernicus DEM",
+    "origin": "Open-Meteo Elevation API"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "hydro_springs",
+    "type": "integer",
+    "description_en": "Number of springs (nascentes) mapped by FBDS in the municipality.",
+    "description_pt": "Quantidade de nascentes mapeadas pela FBDS no município.",
+    "standard": "FBDS",
+    "origin": "FBDS (geo.fbds.org.br)"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "hydro_rivers_km",
+    "type": "float",
+    "description_en": "Total length of single-line watercourses (rivers and streams up to ~10 m wide), km, geodesic.",
+    "description_pt": "Comprimento total dos cursos d'água de linha simples (rios e córregos até ~10 m de largura), em km, geodésico.",
+    "standard": "FBDS",
+    "origin": "FBDS, computed"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "hydro_double_rivers_ha",
+    "type": "float",
+    "description_en": "Area of wide rivers mapped as polygons (double-line rivers), hectares.",
+    "description_pt": "Área dos rios largos mapeados como polígonos (rios de margem dupla), em hectares.",
+    "standard": "FBDS",
+    "origin": "FBDS, computed"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "hydro_water_bodies",
+    "type": "integer",
+    "description_en": "Number of water bodies (lakes, ponds, reservoirs).",
+    "description_pt": "Quantidade de massas d'água (lagos, lagoas, açudes, represas).",
+    "standard": "FBDS",
+    "origin": "FBDS"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "hydro_water_bodies_ha",
+    "type": "float",
+    "description_en": "Total area of water bodies, hectares.",
+    "description_pt": "Área total das massas d'água, em hectares.",
+    "standard": "FBDS",
+    "origin": "FBDS, computed"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "hydro_artificial_water_bodies",
+    "type": "integer",
+    "description_en": "Water bodies classified by FBDS as artificial (dams, reservoirs, ponds).",
+    "description_pt": "Massas d'água classificadas pela FBDS como artificiais (açudes, represas, tanques).",
+    "standard": "FBDS",
+    "origin": "FBDS"
+  },
+  {
+    "table": "municipios.csv",
+    "name": "hydro_source_updated",
+    "type": "string",
+    "description_en": "Last modification date of the FBDS files used (YYYY-MM-DD).",
+    "description_pt": "Data da última modificação dos arquivos da FBDS usados (AAAA-MM-DD).",
+    "standard": "ISO 8601",
+    "origin": "FBDS"
+  },
+  {
     "table": "estados.csv",
     "name": "ibge_code",
     "type": "integer",
@@ -258,6 +447,51 @@
     "description_en": "IBGE API v3 URL for the state boundary.",
     "description_pt": "URL da API v3 do IBGE com a malha da UF.",
     "standard": "IBGE API",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "municipality_count",
+    "type": "integer",
+    "description_en": "Number of municipalities in the state.",
+    "description_pt": "Quantidade de municípios na UF.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "population_2022",
+    "type": "integer",
+    "description_en": "Sum of the municipal populations, 2022 Census.",
+    "description_pt": "Soma das populações municipais, Censo 2022.",
+    "standard": "IBGE SIDRA 4714",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "area_km2",
+    "type": "float",
+    "description_en": "Sum of the municipal areas, km².",
+    "description_pt": "Soma das áreas municipais, em km².",
+    "standard": "IBGE SIDRA 4714",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "hydro_springs",
+    "type": "integer",
+    "description_en": "Sum of the municipal spring counts (FBDS).",
+    "description_pt": "Soma das nascentes dos municípios (FBDS).",
+    "standard": "FBDS",
+    "origin": "derived"
+  },
+  {
+    "table": "estados.csv",
+    "name": "hydro_rivers_km",
+    "type": "float",
+    "description_en": "Sum of the municipal single-line watercourse lengths, km (FBDS).",
+    "description_pt": "Soma dos comprimentos de cursos d'água de linha simples dos municípios, em km (FBDS).",
+    "standard": "FBDS",
     "origin": "derived"
   }
 ]

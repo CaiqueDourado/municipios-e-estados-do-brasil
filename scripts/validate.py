@@ -103,6 +103,33 @@ def main() -> int:
     check((states["prep_de"] == states["prep_em"].map(de)).all(), "prep_de inconsistent with prep_em")
     check((states["name_with_em"] == states["prep_em"] + " " + states["name"]).all(), "name_with_em inconsistent")
 
+    # Enrichment columns (filled by scripts/fetch_enrichment.py + build.py). Checked only when present.
+    enriched = pd.read_parquet(ROOT / "data" / "municipios.parquet")
+    for column, minimum in {"immediate_region_code": 0.99, "population_2022": 0.99, "elevation_m": 0.99}.items():
+        filled = enriched[column].notna().mean()
+        if filled > 0:
+            check(filled >= minimum, f"{column}: only {filled:.1%} filled (expected >= {minimum:.0%})")
+    for column, digits in {"immediate_region_code": 6, "intermediate_region_code": 4, "microregion_code": 5, "mesoregion_code": 4}.items():
+        codes = enriched[column].dropna().astype(int)
+        uf = enriched.loc[codes.index, "state_ibge_code"]
+        check((codes // 10 ** (digits - 2) == uf).all(), f"{column} does not start with the state code")
+    with_census = enriched.dropna(subset=["population_2022", "area_km2", "density_2022"])
+    if not with_census.empty:
+        density = with_census["population_2022"] / with_census["area_km2"]
+        off = with_census[(density - with_census["density_2022"]).abs() > density * 0.02 + 0.1]
+        check(off.empty, f"density_2022 differs from population/area: {off['ibge_code'].tolist()[:5]}")
+        check((with_census["population_2022"] > 0).all(), "population_2022 must be positive")
+    check(enriched["elevation_m"].dropna().between(-20, 3100).all(), "elevation_m out of Brazil's range")
+    if "cptec_id" in enriched:
+        check(enriched["cptec_id"].dropna().is_unique, "cptec_id is not unique")
+    hydro_filled = enriched["hydro_springs"].notna().mean()
+    if hydro_filled > 0:
+        check(hydro_filled >= 0.95, f"hydro_springs: only {hydro_filled:.1%} filled (expected >= 95%)")
+    for column in ("hydro_springs", "hydro_rivers_km", "hydro_double_rivers_ha", "hydro_water_bodies", "hydro_water_bodies_ha"):
+        check((enriched[column].dropna() >= 0).all(), f"{column} must not be negative")
+    hydro = enriched.dropna(subset=["hydro_water_bodies", "hydro_artificial_water_bodies"])
+    check((hydro["hydro_artificial_water_bodies"] <= hydro["hydro_water_bodies"]).all(), "more artificial than total water bodies")
+
     # Optional boundary file produced by scripts/fetch_meshes.py.
     meshes = ROOT / "data" / "estados.geojson"
     if meshes.exists():

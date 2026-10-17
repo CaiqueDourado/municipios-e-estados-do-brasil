@@ -121,6 +121,132 @@
         "non_null": 5570,
         "null_pct": 0.0,
         "distinct": 5570
+      },
+      "immediate_region_code": {
+        "dtype": "Int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 510
+      },
+      "immediate_region": {
+        "dtype": "string",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 508
+      },
+      "intermediate_region_code": {
+        "dtype": "Int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 133
+      },
+      "intermediate_region": {
+        "dtype": "string",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 133
+      },
+      "microregion_code": {
+        "dtype": "Int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 558
+      },
+      "microregion": {
+        "dtype": "string",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 554
+      },
+      "mesoregion_code": {
+        "dtype": "Int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 137
+      },
+      "mesoregion": {
+        "dtype": "string",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 137
+      },
+      "population_2022": {
+        "dtype": "Int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5069
+      },
+      "area_km2": {
+        "dtype": "Float64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5438
+      },
+      "density_2022": {
+        "dtype": "Float64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 4056
+      },
+      "population_estimate": {
+        "dtype": "Int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 5087
+      },
+      "population_estimate_year": {
+        "dtype": "Int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 1
+      },
+      "elevation_m": {
+        "dtype": "Int64",
+        "non_null": 5570,
+        "null_pct": 0.0,
+        "distinct": 1068
+      },
+      "hydro_springs": {
+        "dtype": "Int64",
+        "non_null": 5470,
+        "null_pct": 1.8,
+        "distinct": 2001
+      },
+      "hydro_rivers_km": {
+        "dtype": "Float64",
+        "non_null": 5470,
+        "null_pct": 1.8,
+        "distinct": 5372
+      },
+      "hydro_double_rivers_ha": {
+        "dtype": "Float64",
+        "non_null": 5470,
+        "null_pct": 1.8,
+        "distinct": 4521
+      },
+      "hydro_water_bodies": {
+        "dtype": "Int64",
+        "non_null": 5470,
+        "null_pct": 1.8,
+        "distinct": 728
+      },
+      "hydro_water_bodies_ha": {
+        "dtype": "Float64",
+        "non_null": 5470,
+        "null_pct": 1.8,
+        "distinct": 4916
+      },
+      "hydro_artificial_water_bodies": {
+        "dtype": "Int64",
+        "non_null": 5470,
+        "null_pct": 1.8,
+        "distinct": 621
+      },
+      "hydro_source_updated": {
+        "dtype": "string",
+        "non_null": 5470,
+        "null_pct": 1.8,
+        "distinct": 7
       }
     }
   },
@@ -210,7 +336,66 @@
         "non_null": 27,
         "null_pct": 0.0,
         "distinct": 27
+      },
+      "municipality_count": {
+        "dtype": "int64",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "population_2022": {
+        "dtype": "Int64",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "area_km2": {
+        "dtype": "Float64",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "hydro_springs": {
+        "dtype": "Int64",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
+      },
+      "hydro_rivers_km": {
+        "dtype": "Float64",
+        "non_null": 27,
+        "null_pct": 0.0,
+        "distinct": 27
       }
     }
+  },
+  "enrichment_coverage": {
+    "immediate_region_code": 5570,
+    "immediate_region": 5570,
+    "intermediate_region_code": 5570,
+    "intermediate_region": 5570,
+    "microregion_code": 5570,
+    "microregion": 5570,
+    "mesoregion_code": 5570,
+    "mesoregion": 5570,
+    "population_2022": 5570,
+    "area_km2": 5570,
+    "density_2022": 5570,
+    "population_estimate": 5570,
+    "population_estimate_year": 5570,
+    "elevation_m": 5570,
+    "hydro_springs": 5470,
+    "hydro_rivers_km": 5470,
+    "hydro_double_rivers_ha": 5470,
+    "hydro_water_bodies": 5470,
+    "hydro_water_bodies_ha": 5470,
+    "hydro_artificial_water_bodies": 5470,
+    "hydro_source_updated": 5470
+  },
+  "hydro_missing_by_uf": {
+    "MS": 2,
+    "MT": 3,
+    "PE": 1,
+    "RS": 94
   }
 }

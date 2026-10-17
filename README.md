@@ -8,12 +8,12 @@
 **pt-BR:** Os 5.570 municípios e as 27 UFs do Brasil com códigos IBGE e SIAFI, DDD, fusos horários IANA, coordenadas, slug e a gramática de cada estado ("no Acre", "em Goiás") para geração de texto.
 **en:** All 5,570 Brazilian municipalities and 27 states with IBGE and SIAFI codes, phone area codes, IANA time zones, coordinates, URL slugs and the grammar each state name takes in Portuguese, for text generation.
 
-[Leia em português](README.pt-BR.md)
+[Leia em português](README.pt-BR.md) · **[Open the interactive explorer](https://caiquedourado.github.io/municipios-e-estados-do-brasil/)**
 
 | Table | Rows | Columns | Formats | Checks |
 |---|---|---|---|---|
-| `municipios` | 5,570 | 15 | CSV · Parquet · JSON | IBGE check digit, unique keys, coordinates, DDD, zones |
-| `estados` | 27 | 14 | CSV · Parquet · JSON | grammar consistency, joins with `municipios` |
+| `municipios` | 5,570 | 36 | CSV · Parquet · JSON · GeoJSON | IBGE check digit, unique keys, coordinates, DDD, zones, census consistency |
+| `estados` | 27 | 19 | CSV · Parquet · JSON · GeoJSON | grammar consistency, joins with `municipios` |
 
 ## Preview
 
@@ -33,6 +33,8 @@
 | SP | São Paulo | São Paulo | | em São Paulo | de São Paulo |
 
 ## Map
+
+**[Interactive explorer](https://caiquedourado.github.io/municipios-e-estados-do-brasil/)**: pick any municipality to see its boundary, its data and the weather forecast. Change the code in the address (`?ibge=2927408`) to jump to another one.
 
 ![Municipalities by time zone](docs/img/mapa-fusos.png)
 
@@ -77,6 +79,7 @@ FROM 'data/municipios.parquet' GROUP BY ALL ORDER BY municipios DESC;
 
 - **Joins across government data:** `ibge_code` for IBGE and census data, `siafi_code` for Treasury and federal transfers, `ddd` for telephony.
 - **Correct time zones:** 15 canonical IANA zones. Many public tables use only `America/Sao_Paulo` and a handful of others; that gives the right offset today but the wrong history, because the states had different daylight saving rules until 2019.
+- **Enriched from public APIs:** IBGE regional divisions (immediate, intermediate, micro and meso regions), 2022 Census population, area and density, the latest population estimate, seat elevation and hydrography totals from FBDS (springs, km of rivers, water bodies) for 98% of the municipalities. The raw answers are versioned in `raw/enrichment/`.
 - **Ready for text generation:** a template can write "em Goiás" and "no Acre" without hand-written exceptions.
 - **Tested:** every push revalidates the IBGE check digits, allowing exactly the 9 official exceptions. It also checks unique keys, coordinates inside Brazil and one capital per state.
 
@@ -85,6 +88,20 @@ Column by column: **[data dictionary](docs/data-dictionary.md)** ([pt-BR](docs/d
 ## How it was built
 
 These tables were the geographic backbone of the author's programmatic sites, among them a portal of 15,000 registry offices crawled from the CNJ [Justiça Aberta](https://justicaaberta.cnj.jus.br/) system. Base fields are credited to [kelvins/municipios-brasileiros](https://github.com/kelvins/municipios-brasileiros) (MIT). The state grammar, map URLs and padded SIAFI codes were added by the author. In 2026 the export was profiled, corrected and given a reproducible build. Details in [methodology](docs/methodology.md).
+
+## How the data is collected
+
+The v1.2 enrichment comes from public sources, each with its own collector in [`scripts/`](scripts/). Raw answers are stored in [`raw/enrichment/`](raw/enrichment/), so the build runs offline and CI checks that it reproduces `data/` exactly.
+
+| Script | Source | Shows |
+|---|---|---|
+| [`fetch_enrichment.py`](scripts/fetch_enrichment.py) | IBGE APIs (Localidades, SIDRA) | SIDRA table queries, gzip-compressed responses |
+| | Open-Meteo (elevation) | Stays within the free-tier quota (100 coordinates every 15 s), honours `Retry-After` on HTTP 429, resumes where it stopped |
+| | BrasilAPI / CPTEC | Falls back to CPTEC's own XML, then to a city-by-city search (service unavailable in Oct 2026, so not in v1.2) |
+| [`fetch_fbds.py`](scripts/fetch_fbds.py) | FBDS hydrography per municipality | Crawls folder listings that have no API and reprojects shapefiles with pyproj. Computes lengths and areas on the GRS80 ellipsoid, within 0.1% of FBDS's own figures. Resumes where it stopped and keeps only the totals |
+| [`fetch_meshes.py`](scripts/fetch_meshes.py) | IBGE mesh API v3 | Builds the state GeoJSON and uses the OS trust store when the server sends an incomplete SSL chain |
+
+Every collector identifies itself in its User-Agent, waits between requests and never disables TLS verification.
 
 ## Data quality
 
@@ -101,9 +118,10 @@ All of it is fixed in code. It also confirmed that the 9 "invalid" IBGE check di
 
 ```text
 data/          municipios.* and estados.* (CSV, Parquet, JSON) + dataset-metadata.json (Kaggle)
-raw/           SQL Server export, untouched (semicolon, no header, decimal comma)
+raw/           SQL Server export, untouched (semicolon, no header, decimal comma); raw/enrichment/ = API answers
 schema/        column definitions and dataset metadata
-scripts/       build.py, validate.py, docs.py, fetch_meshes.py, maps.py
+scripts/       build.py, enrich.py, validate.py, docs.py, fetch_enrichment.py, fetch_fbds.py, fetch_meshes.py, maps.py
+index.html     interactive explorer (GitHub Pages)
 notebooks/     eda.ipynb
 docs/          data dictionary, methodology, data quality
 ```

@@ -13,7 +13,12 @@
     "name_with_em": "em Rondônia",
     "name_with_de": "de Rondônia",
     "timezone": "America/Porto_Velho",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/11"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/11",
+    "municipality_count": 52,
+    "population_2022": 1581196,
+    "area_km2": 237754.18,
+    "hydro_springs": 80774,
+    "hydro_rivers_km": 195971.87
   },
   {
     "ibge_code": 12,
@@ -29,7 +34,12 @@
     "name_with_em": "no Acre",
     "name_with_de": "do Acre",
     "timezone": "America/Rio_Branco",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/12"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/12",
+    "municipality_count": 22,
+    "population_2022": 830018,
+    "area_km2": 164173.41,
+    "hydro_springs": 26967,
+    "hydro_rivers_km": 117717.41
   },
   {
     "ibge_code": 13,
@@ -45,7 +55,12 @@
     "name_with_em": "no Amazonas",
     "name_with_de": "do Amazonas",
     "timezone": "America/Manaus",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/13"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/13",
+    "municipality_count": 62,
+    "population_2022": 3941613,
+    "area_km2": 1559255.86,
+    "hydro_springs": 563046,
+    "hydro_rivers_km": 1410097.88
   },
   {
     "ibge_code": 14,
@@ -61,7 +76,12 @@
     "name_with_em": "em Roraima",
     "name_with_de": "de Roraima",
     "timezone": "America/Boa_Vista",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/14"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/14",
+    "municipality_count": 15,
+    "population_2022": 636707,
+    "area_km2": 223644.53,
+    "hydro_springs": 58241,
+    "hydro_rivers_km": 176891.91
   },
   {
     "ibge_code": 15,
@@ -77,7 +97,12 @@
     "name_with_em": "no Pará",
     "name_with_de": "do Pará",
     "timezone": "America/Belem",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/15"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/15",
+    "municipality_count": 144,
+    "population_2022": 8120131,
+    "area_km2": 1245870.65,
+    "hydro_springs": 1276401,
+    "hydro_rivers_km": 1712113.33
   },
   {
     "ibge_code": 16,
@@ -93,7 +118,12 @@
     "name_with_em": "no Amapá",
     "name_with_de": "do Amapá",
     "timezone": "America/Belem",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/16"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/16",
+    "municipality_count": 16,
+    "population_2022": 733759,
+    "area_km2": 142470.76,
+    "hydro_springs": 82897,
+    "hydro_rivers_km": 149505.4
   },
   {
     "ibge_code": 17,
@@ -109,7 +139,12 @@
     "name_with_em": "no Tocantins",
     "name_with_de": "do Tocantins",
     "timezone": "America/Araguaina",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/17"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/17",
+    "municipality_count": 139,
+    "population_2022": 1511460,
+    "area_km2": 277423.58,
+    "hydro_springs": 280287,
+    "hydro_rivers_km": 345207.76
   },
   {
     "ibge_code": 21,
@@ -125,7 +160,12 @@
     "name_with_em": "no Maranhão",
     "name_with_de": "do Maranhão",
     "timezone": "America/Fortaleza",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/21"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/21",
+    "municipality_count": 217,
+    "population_2022": 6776699,
+    "area_km2": 329651.49,
+    "hydro_springs": 170632,
+    "hydro_rivers_km": 312442.54
   },
   {
     "ibge_code": 22,
@@ -141,7 +181,12 @@
     "name_with_em": "no Piauí",
     "name_with_de": "do Piauí",
     "timezone": "America/Fortaleza",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/22"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/22",
+    "municipality_count": 224,
+    "population_2022": 3271199,
+    "area_km2": 251755.53,
+    "hydro_springs": 117113,
+    "hydro_rivers_km": 221533.94
   },
   {
     "ibge_code": 23,
@@ -157,7 +202,12 @@
     "name_with_em": "no Ceará",
     "name_with_de": "do Ceará",
     "timezone": "America/Fortaleza",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/23"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/23",
+    "municipality_count": 184,
+    "population_2022": 8794957,
+    "area_km2": 148894.47,
+    "hydro_springs": 111663,
+    "hydro_rivers_km": 193678.52
   },
   {
     "ibge_code": 24,
@@ -173,7 +223,12 @@
     "name_with_em": "no Rio Grande do Norte",
     "name_with_de": "do Rio Grande do Norte",
     "timezone": "America/Fortaleza",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/24"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/24",
+    "municipality_count": 167,
+    "population_2022": 3302729,
+    "area_km2": 52809.62,
+    "hydro_springs": 42581,
+    "hydro_rivers_km": 68539.73
   },
   {
     "ibge_code": 25,
@@ -189,7 +244,12 @@
     "name_with_em": "na Paraíba",
     "name_with_de": "da Paraíba",
     "timezone": "America/Fortaleza",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/25"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/25",
+    "municipality_count": 223,
+    "population_2022": 3974687,
+    "area_km2": 56467.3,
+    "hydro_springs": 38186,
+    "hydro_rivers_km": 72946.62
   },
   {
     "ibge_code": 26,
@@ -205,7 +265,12 @@
     "name_with_em": "em Pernambuco",
     "name_with_de": "de Pernambuco",
     "timezone": "America/Recife",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/26"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/26",
+    "municipality_count": 185,
+    "population_2022": 9058931,
+    "area_km2": 98067.91,
+    "hydro_springs": 44188,
+    "hydro_rivers_km": 94999.1
   },
   {
     "ibge_code": 27,
@@ -221,7 +286,12 @@
     "name_with_em": "em Alagoas",
     "name_with_de": "de Alagoas",
     "timezone": "America/Maceio",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/27"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/27",
+    "municipality_count": 102,
+    "population_2022": 3127683,
+    "area_km2": 27830.7,
+    "hydro_springs": 14664,
+    "hydro_rivers_km": 31258.51
   },
   {
     "ibge_code": 28,
@@ -237,7 +307,12 @@
     "name_with_em": "em Sergipe",
     "name_with_de": "de Sergipe",
     "timezone": "America/Maceio",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/28"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/28",
+    "municipality_count": 75,
+    "population_2022": 2210004,
+    "area_km2": 21938.16,
+    "hydro_springs": 17078,
+    "hydro_rivers_km": 27389.08
   },
   {
     "ibge_code": 29,
@@ -253,7 +328,12 @@
     "name_with_em": "na Bahia",
     "name_with_de": "da Bahia",
     "timezone": "America/Bahia",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/29"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/29",
+    "municipality_count": 417,
+    "population_2022": 14141626,
+    "area_km2": 564760.41,
+    "hydro_springs": 243385,
+    "hydro_rivers_km": 510546.5
   },
   {
     "ibge_code": 31,
@@ -269,7 +349,12 @@
     "name_with_em": "em Minas Gerais",
     "name_with_de": "de Minas Gerais",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/31"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/31",
+    "municipality_count": 853,
+    "population_2022": 20539989,
+    "area_km2": 586513.87,
+    "hydro_springs": 608171,
+    "hydro_rivers_km": 837311.81
   },
   {
     "ibge_code": 32,
@@ -285,7 +370,12 @@
     "name_with_em": "no Espírito Santo",
     "name_with_de": "do Espírito Santo",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/32"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/32",
+    "municipality_count": 78,
+    "population_2022": 3833712,
+    "area_km2": 46074.47,
+    "hydro_springs": 65260,
+    "hydro_rivers_km": 80730.44
   },
   {
     "ibge_code": 33,
@@ -301,7 +391,12 @@
     "name_with_em": "no Rio de Janeiro",
     "name_with_de": "do Rio de Janeiro",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/33"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/33",
+    "municipality_count": 92,
+    "population_2022": 16055174,
+    "area_km2": 43750.45,
+    "hydro_springs": 95954,
+    "hydro_rivers_km": 115628.72
   },
   {
     "ibge_code": 35,
@@ -317,7 +412,12 @@
     "name_with_em": "em São Paulo",
     "name_with_de": "de São Paulo",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/35"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/35",
+    "municipality_count": 645,
+    "population_2022": 44411238,
+    "area_km2": 248219.65,
+    "hydro_springs": 497303,
+    "hydro_rivers_km": 449887.64
   },
   {
     "ibge_code": 41,
@@ -333,7 +433,12 @@
     "name_with_em": "no Paraná",
     "name_with_de": "do Paraná",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/41"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/41",
+    "municipality_count": 399,
+    "population_2022": 11444380,
+    "area_km2": 199298.98,
+    "hydro_springs": 347967,
+    "hydro_rivers_km": 348282.61
   },
   {
     "ibge_code": 42,
@@ -349,7 +454,12 @@
     "name_with_em": "em Santa Catarina",
     "name_with_de": "de Santa Catarina",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/42"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/42",
+    "municipality_count": 295,
+    "population_2022": 7610361,
+    "area_km2": 95730.65,
+    "hydro_springs": 710607,
+    "hydro_rivers_km": 407151.01
   },
   {
     "ibge_code": 43,
@@ -365,7 +475,12 @@
     "name_with_em": "no Rio Grande do Sul",
     "name_with_de": "do Rio Grande do Sul",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/43"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/43",
+    "municipality_count": 497,
+    "population_2022": 10882965,
+    "area_km2": 268621.32,
+    "hydro_springs": 132847,
+    "hydro_rivers_km": 193499.11
   },
   {
     "ibge_code": 50,
@@ -381,7 +496,12 @@
     "name_with_em": "no Mato Grosso do Sul",
     "name_with_de": "do Mato Grosso do Sul",
     "timezone": "America/Campo_Grande",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/50"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/50",
+    "municipality_count": 79,
+    "population_2022": 2757013,
+    "area_km2": 357142.13,
+    "hydro_springs": 97343,
+    "hydro_rivers_km": 197180.45
   },
   {
     "ibge_code": 51,
@@ -397,7 +517,12 @@
     "name_with_em": "no Mato Grosso",
     "name_with_de": "do Mato Grosso",
     "timezone": "America/Cuiaba",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/51"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/51",
+    "municipality_count": 141,
+    "population_2022": 3658649,
+    "area_km2": 903208.38,
+    "hydro_springs": 381705,
+    "hydro_rivers_km": 711663.67
   },
   {
     "ibge_code": 52,
@@ -413,7 +538,12 @@
     "name_with_em": "em Goiás",
     "name_with_de": "de Goiás",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/52"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/52",
+    "municipality_count": 246,
+    "population_2022": 7056495,
+    "area_km2": 340242.84,
+    "hydro_springs": 158561,
+    "hydro_rivers_km": 329277.09
   },
   {
     "ibge_code": 53,
@@ -429,6 +559,11 @@
     "name_with_em": "no Distrito Federal",
     "name_with_de": "do Distrito Federal",
     "timezone": "America/Sao_Paulo",
-    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/53"
+    "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/53",
+    "municipality_count": 1,
+    "population_2022": 2817381,
+    "area_km2": 5760.78,
+    "hydro_springs": 5358,
+    "hydro_rivers_km": 6302.54
   }
 ]

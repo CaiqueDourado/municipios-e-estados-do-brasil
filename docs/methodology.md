@@ -59,7 +59,31 @@ python scripts/fetch_meshes.py   # state boundaries from the IBGE API (network)
 python scripts/maps.py           # README maps, needs matplotlib
 ```
 
-## 4. Validation
+## 4. Enrichment from public APIs (v1.2)
+
+`scripts/fetch_enrichment.py` downloads public data and saves the raw answers in `raw/enrichment/`, so the build stays reproducible offline. `scripts/enrich.py` (called by `build.py`) joins them by `ibge_code`:
+
+| Columns | Source |
+|---|---|
+| `immediate_region*`, `intermediate_region*` (current 2017 division), `microregion*`, `mesoregion*` (1989 division) | [IBGE Localidades API](https://servicodados.ibge.gov.br/api/docs/localidades) |
+| `population_2022`, `area_km2`, `density_2022` | IBGE SIDRA, table 4714 (2022 Census) |
+| `population_estimate`, `population_estimate_year` | IBGE SIDRA, table 6579 (latest official estimate) |
+| `elevation_m` | [Open-Meteo Elevation API](https://open-meteo.com/en/docs/elevation-api) (Copernicus DEM, 90 m) at the seat coordinate |
+| `hydro_*` | [FBDS](https://geo.fbds.org.br/) high-resolution hydrography, crawled by `scripts/fetch_fbds.py` |
+
+**Hydrography (FBDS).** The FBDS repository has one folder per municipality with shapefiles of springs, single-line watercourses, double-line rivers and water bodies (`/UF/MUNICIPIO/HIDROGRAFIA/UF_<ibge_code>_<LAYER>.shp`). `scripts/fetch_fbds.py` walks the folder listings, downloads only these layers, reprojects them when needed (pyproj) and computes geodesic totals on the GRS80 ellipsoid: number of springs, km of watercourses, hectares of wide rivers and of water bodies, and how many water bodies are artificial. Only the totals are kept (`raw/enrichment/fbds_hidrografia.csv`); the shapefiles are deleted after processing, so the crawl needs little disk and can be resumed. Checked against Irecê (BA): 327 springs, 20 water bodies and 545.3 km of watercourses, within 0.1% of the lengths FBDS stores in its own attribute table. Coverage is 5,470 of 5,570 municipalities; the 100 without an FBDS folder are listed in [hydro-missing.csv](hydro-missing.csv). Three workers crawl in parallel (about 2 to 3 hours for the whole country), and `--redo-negative` re-crawls rows whose areas came out negative before the orientation fix.
+
+`fetch_enrichment.py cptec` also collects the CPTEC/INPE city ids (the key of the weather forecast endpoints), with fallbacks to CPTEC's XML and to a city-by-city search. In October 2026 every CPTEC endpoint refused public access (BrasilAPI HTTP 500, CPTEC HTTP 403), so `cptec_id` is not part of v1.2.
+
+Every enrichment column always exists and stays empty when its source was not downloaded. States receive `municipality_count` and the sums of population and area.
+
+```bash
+python scripts/fetch_enrichment.py      # or: python scripts/fetch_enrichment.py ibge censo
+python scripts/fetch_fbds.py            # hydrography; resumable, try --uf BA first
+python scripts/build.py && python scripts/validate.py && python scripts/docs.py
+```
+
+## 5. Validation
 
 `scripts/validate.py` checks, on every push:
 
@@ -70,3 +94,4 @@ python scripts/maps.py           # README maps, needs matplotlib
 - **Capitals:** exactly one per state.
 - **Time zones:** each offset matches its zone, and both tables agree on each state's code and region.
 - **Grammar:** the article and both prepositions are consistent with each other.
+- **Enrichment (when present):** coverage of each source, region codes starting with the state code, density equal to population / area, elevation inside Brazil's range and unique CPTEC ids.

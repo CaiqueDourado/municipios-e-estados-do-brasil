@@ -26,7 +26,19 @@ credited here as their likely origin. That project is distributed under the MIT 
 > CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
 > THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+## Open-Meteo / Copernicus DEM
+
+`elevation_m` comes from the [Open-Meteo Elevation API](https://open-meteo.com/en/docs/elevation-api), data licensed under CC BY 4.0, based on the Copernicus DEM GLO-90 (© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA).
+
+## BrasilAPI / CPTEC-INPE
+
+The explorer (`index.html`) shows weather forecasts fetched live from [BrasilAPI](https://brasilapi.com.br), which mirrors the Centro de Previsão de Tempo e Estudos Climáticos (CPTEC/INPE). No CPTEC data is stored in this dataset.
+
+## FBDS
+
+Hydrography totals (`hydro_*`) are derived from the high-resolution mapping of the Fundação Brasileira para o Desenvolvimento Sustentável. Source: "Hidrografia: Fundação Brasileira para o Desenvolvimento Sustentável (FBDS), disponível em geo.fbds.org.br". Data are free to use with attribution; only per-municipality totals are redistributed here, not the original geometries.
+
 ## IBGE
 
-Municipality and state codes, names and boundary API: Instituto Brasileiro de Geografia
+Municipality and state codes, names, regional divisions, 2022 Census population and area, population estimates and boundary API: Instituto Brasileiro de Geografia
 e Estatística (IBGE), public data.

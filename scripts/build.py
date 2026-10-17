@@ -18,6 +18,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from enrich import enrich
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data"
 
@@ -173,6 +175,9 @@ def main() -> None:
 
     states = build_states(raw_states, capitals)
     cities = build_cities(raw_cities, states_by_id)
+    cities, states, report = enrich(cities, states)
+    if report.get("codes_not_in_table"):
+        print(f"enrichment: {len(report['codes_not_in_table'])} IBGE code(s) not in the table: {report['codes_not_in_table'][:5]}")
 
     OUT.mkdir(exist_ok=True)
     write(cities, "municipios")
@@ -180,10 +185,14 @@ def main() -> None:
     (OUT / "municipios.geojson").write_text(
         json.dumps(geojson(cities), ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8"
     )
+    missing = cities[cities["hydro_springs"].isna()][["ibge_code", "name", "uf"]] if cities["hydro_springs"].notna().any() else cities.iloc[0:0][["ibge_code", "name", "uf"]]
+    missing.sort_values(["uf", "name"]).to_csv(ROOT / "docs" / "hydro-missing.csv", index=False, lineterminator="\n")
     stats = {
         "dataset": "municipios-e-estados-do-brasil",
         "municipios": {"rows": len(cities), "by_uf": cities["uf"].value_counts().sort_index().to_dict(), "fields": column_stats(cities)},
         "estados": {"rows": len(states), "fields": column_stats(states)},
+        "enrichment_coverage": report["coverage"],
+        "hydro_missing_by_uf": missing["uf"].value_counts().sort_index().to_dict(),
     }
     (ROOT / "stats.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"{len(cities)} municipalities, {len(states)} states -> data/")

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explorador de municípios do Brasil</title>
+<meta name="description" content="Explore os 5.570 municípios do Brasil: contorno, códigos IBGE e SIAFI, DDD, fuso, população, altitude e previsão do tempo.">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f6f6f4; --surface: #fcfcfb; --surface-2: #f0efec; --line: #e1e0dc;
+  --ink: #0b0b0b; --ink-2: #52514e; --ink-3: #7a7974;
+  --accent: #2a78d6; --accent-ink: #1c5cab; --fill: #2a78d6; --fill-soft: rgba(42,120,214,.16);
+  --state: #e6e5e1; --state-line: #c9c8c3; --dot: #b4b3ad; --hot: #eb6834; --cold: #2a78d6;
+  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121211; --surface: #1a1a19; --surface-2: #232321; --line: #31312e;
+    --ink: #f0efec; --ink-2: #c3c2b7; --ink-3: #8f8e86;
+    --accent: #3987e5; --accent-ink: #86b6ef; --fill: #3987e5; --fill-soft: rgba(57,135,229,.22);
+    --state: #262624; --state-line: #3a3a37; --dot: #55554f; --hot: #d95926; --cold: #3987e5;
+    --shadow: none;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: var(--accent-ink); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+h1 { font-size: 22px; margin: 0; letter-spacing: -.01em; }
+.links { font-size: 13px; color: var(--ink-3); }
+.links a { margin-left: 12px; }
+.search { position: relative; margin: 18px 0 20px; display: flex; gap: 8px; }
+.search input { flex: 1; font: inherit; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); outline: none; }
+.search input:focus { border-color: var(--accent); }
+.search button { font: inherit; font-size: 14px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); cursor: pointer; }
+.search button:hover { border-color: var(--accent); }
+.results { position: absolute; top: 48px; left: 0; right: 0; z-index: 10; list-style: none; margin: 0; padding: 4px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); display: none; }
+.results li { padding: 8px 10px; border-radius: 7px; cursor: pointer; display: flex; justify-content: space-between; }
+.results li span { color: var(--ink-3); font-size: 13px; }
+.results li[aria-selected="true"], .results li:hover { background: var(--surface-2); }
+.title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 14px; }
+.title h2 { font-size: 30px; margin: 0; letter-spacing: -.02em; }
+.title .sub { color: var(--ink-2); }
+.chip { font-size: 12px; padding: 2px 9px; border-radius: 99px; background: var(--surface-2); color: var(--ink-2); }
+.grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px; }
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+.card h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3);
+  margin: 0; padding: 14px 16px 0; }
+.map { position: relative; }
+.map svg { display: block; width: 100%; height: 460px; cursor: grab; touch-action: none; border-radius: 0 0 14px 14px; }
+.map svg.drag { cursor: grabbing; }
+@media (max-width: 600px) { .map svg { height: 320px; } }
+.map .tools { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; }
+.map .tools button { font: inherit; font-size: 12px; padding: 5px 10px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.map .note { position: absolute; left: 14px; bottom: 10px; font-size: 12px; color: var(--ink-3); pointer-events: none; }
+.tip { position: absolute; pointer-events: none; padding: 6px 9px; font-size: 12px; border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); opacity: 0; white-space: nowrap; }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; padding: 8px 6px 10px; margin: 0; }
+.facts div { padding: 8px 10px; min-width: 0; }
+.facts dt { font-size: 12px; color: var(--ink-3); }
+.facts dd { margin: 1px 0 0; font-weight: 600; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.facts dd small { font-weight: 400; color: var(--ink-3); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+@media (max-width: 860px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stat { padding: 14px 16px; }
+.stat .k { font-size: 12px; color: var(--ink-3); }
+.stat .v { font-size: 24px; font-weight: 700; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.stat .s { font-size: 12px; color: var(--ink-2); }
+.weather { padding: 6px 16px 16px; }
+.days { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+@media (max-width: 860px) { .days { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.day { background: var(--surface-2); border-radius: 10px; padding: 10px; font-size: 13px; }
+.day b { display: block; font-size: 12px; color: var(--ink-2); font-weight: 600; }
+.day .cond { min-height: 36px; color: var(--ink); margin: 4px 0; }
+.range { position: relative; height: 6px; background: var(--line); border-radius: 99px; margin: 8px 0 4px; }
+.range i { position: absolute; top: 0; bottom: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--cold), var(--hot)); }
+.temps { display: flex; justify-content: space-between; font-variant-numeric: tabular-nums; }
+.temps span:first-child { color: var(--ink-2); }
+.muted { color: var(--ink-3); font-size: 13px; }
+.grammar { padding: 4px 16px 16px; }
+.grammar code { background: var(--surface-2); padding: 2px 6px; border-radius: 6px; }
+footer { margin-top: 28px; font-size: 12.5px; color: var(--ink-3); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Explorador de municípios do Brasil</h1>
+    <div class="links">
+      Dados: <a href="https://github.com/CaiqueDourado/municipios-e-estados-do-brasil">GitHub</a>
+      <a href="https://www.kaggle.com/datasets/caiquedourado/municipios-e-estados-do-brasil">Kaggle</a>
+    </div>
+  </header>
+
+  <div class="search">
+    <input id="q" type="search" placeholder="Busque um município (ex.: Irecê, Salvador, São Paulo)…" autocomplete="off"
+      aria-label="Buscar município" aria-controls="results" aria-autocomplete="list">
+    <button id="random" type="button" title="Município aleatório">Aleatório</button>
+    <ul class="results" id="results" role="listbox"></ul>
+  </div>
+
+  <div class="title" id="title"><h2>Carregando…</h2></div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="grid">
+    <section class="card map">
+      <h3>Contorno e sedes vizinhas</h3>
+      <svg id="map" role="img" aria-label="Mapa do município"></svg>
+      <div class="tools"><button id="fit" type="button">Centralizar</button></div>
+      <div class="note" id="mapnote"></div>
+      <div class="tip" id="tip"></div>
+    </section>
+    <section class="card">
+      <h3>Ficha</h3>
+      <dl class="facts" id="facts"></dl>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:16px">
+    <h3>Previsão do tempo · CPTEC/INPE via BrasilAPI</h3>
+    <div class="weather" id="weather"><p class="muted">Carregando…</p></div>
+  </section>
+
+  <section class="card" style="margin-top:16px">
+    <h3>Gramática do estado, para geração de texto</h3>
+    <div class="grammar" id="grammar"></div>
+  </section>
+
+  <footer>
+    Contorno: API de malhas do IBGE · Previsão: CPTEC/INPE via BrasilAPI · Hidrografia: FBDS (geo.fbds.org.br) · Demais dados:
+    <a href="https://github.com/CaiqueDourado/municipios-e-estados-do-brasil">municipios-e-estados-do-brasil</a> (CC BY 4.0).
+    Troque o código no endereço (<code>?ibge=2927408</code>) para abrir outro município.
+  </footer>
+</div>
+
+<script>
+"use strict";
+const IBGE_MESH = code => `https://servicodados.ibge.gov.br/api/v3/malhas/municipios/${code}?formato=application/vnd.geo%2Bjson&qualidade=intermediaria`;
+const BRASILAPI = "https://brasilapi.com.br/api/cptec/v1";
+const $ = id => document.getElementById(id);
+const fmt = new Intl.NumberFormat("pt-BR");
+const fmt1 = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").trim();
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+let cities = [], states = {}, byCode = new Map(), stateShapes = {};
+
+async function getJSON(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${r.status} ${url}`);
+  return r.json();
+}
+
+async function boot() {
+  const [c, s] = await Promise.all([getJSON("data/municipios.json"), getJSON("data/estados.json")]);
+  cities = c.map(x => ({ ...x, _key: norm(x.name) }));
+  cities.forEach(x => byCode.set(x.ibge_code, x));
+  s.forEach(x => states[x.uf] = x);
+  try {
+    const g = await getJSON("data/estados.geojson");
+    g.features.forEach(f => stateShapes[f.properties.uf] = f.geometry);
+  } catch { /* boundaries are optional */ }
+  const wanted = Number(new URLSearchParams(location.search).get("ibge"));
+  show(byCode.get(wanted) || byCode.get(2927408) || cities[0]);
+}
+
+/* ---------- search ---------- */
+let matches = [], active = -1;
+$("q").addEventListener("input", () => {
+  const q = norm($("q").value);
+  matches = q.length < 2 ? [] : cities.filter(c => c._key.includes(q))
+    .sort((a, b) => ((b._key === q) - (a._key === q)) || (b._key.startsWith(q) - a._key.startsWith(q)) || (b.population_2022 ?? 0) - (a.population_2022 ?? 0))
+    .slice(0, 8);
+  active = matches.length ? 0 : -1;
+  renderResults();
+});
+$("q").addEventListener("keydown", e => {
+  if (!matches.length) return;
+  if (e.key === "ArrowDown") { active = (active + 1) % matches.length; renderResults(); e.preventDefault(); }
+  else if (e.key === "ArrowUp") { active = (active - 1 + matches.length) % matches.length; renderResults(); e.preventDefault(); }
+  else if (e.key === "Enter" && active >= 0) { pick(matches[active]); }
+  else if (e.key === "Escape") { matches = []; renderResults(); }
+});
+$("results").addEventListener("mousedown", e => {
+  const li = e.target.closest("li"); if (li) pick(matches[Number(li.dataset.i)]);
+});
+document.addEventListener("click", e => { if (!e.target.closest(".search")) { matches = []; renderResults(); } });
+$("random").addEventListener("click", () => show(cities[Math.floor(Math.random() * cities.length)]));
+function renderResults() {
+  const ul = $("results");
+  ul.style.display = matches.length ? "block" : "none";
+  ul.innerHTML = matches.map((c, i) =>
+    `<li role="option" data-i="${i}" aria-selected="${i === active}">${esc(c.name)} <span>${c.uf} · ${c.ibge_code}</span></li>`).join("");
+}
+function pick(c) { $("q").value = ""; matches = []; renderResults(); show(c); }
+
+/* ---------- page ---------- */
+let current = null;
+function show(c) {
+  current = c;
+  history.replaceState(null, "", `?ibge=${c.ibge_code}`);
+  document.title = `${c.name} (${c.uf}) · Explorador de municípios`;
+  const st = states[c.uf] || {};
+  $("title").innerHTML = `<h2>${esc(c.name)}</h2><span class="sub">${esc(st.name || c.uf)} · ${esc(c.region)}</span>`
+    + (c.is_capital ? `<span class="chip">Capital</span>` : "");
+
+  const est = c.population_estimate != null ? `${fmt.format(c.population_estimate)}` : "—";
+  $("stats").innerHTML = [
+    ["População (Censo 2022)", c.population_2022 != null ? fmt.format(c.population_2022) : "—",
+      c.population_estimate != null ? `Estimativa ${c.population_estimate_year}: ${est}` : ""],
+    ["Área", c.area_km2 != null ? `${fmt1.format(c.area_km2)} km²` : "—",
+      c.density_2022 != null ? `${fmt1.format(c.density_2022)} hab/km²` : ""],
+    ["Altitude da sede", c.elevation_m != null ? `${fmt.format(c.elevation_m)} m` : "—", "Copernicus DEM, via Open-Meteo"],
+    ["Fuso horário", `UTC${c.utc_offset}`, c.timezone],
+  ].map(([k, v, s]) => `<div class="card stat"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${esc(s)}</div></div>`).join("");
+
+  const row = (k, v) => `<div><dt>${k}</dt><dd>${v ?? "—"}</dd></div>`;
+  $("facts").innerHTML = [
+    row("Código IBGE", c.ibge_code),
+    row("Código SIAFI", c.siafi_code),
+    row("DDD", c.ddd),
+    row("Região imediata", c.immediate_region ? `${esc(c.immediate_region)} <small>${c.immediate_region_code}</small>` : null),
+    row("Região intermediária", c.intermediate_region ? `${esc(c.intermediate_region)} <small>${c.intermediate_region_code}</small>` : null),
+    row("Microrregião", c.microregion ? esc(c.microregion) : null),
+    row("Mesorregião", c.mesoregion ? esc(c.mesoregion) : null),
+    row("Nascentes (FBDS)", c.hydro_springs != null ? fmt.format(c.hydro_springs) : null),
+    row("Cursos d'água (FBDS)", c.hydro_rivers_km != null ? `${fmt1.format(c.hydro_rivers_km)} km` : null),
+    row("Massas d'água (FBDS)", c.hydro_water_bodies != null
+      ? `${fmt.format(c.hydro_water_bodies)} <small>${fmt1.format(c.hydro_water_bodies_ha)} ha · ${fmt.format(c.hydro_artificial_water_bodies)} artificiais</small>` : null),
+    row("Coordenadas da sede", `${c.latitude.toFixed(4)}, ${c.longitude.toFixed(4)}`),
+    row("Slug", `<code>${esc(c.slug)}</code>`),
+    row("Mapas", `<a href="https://www.openstreetmap.org/?mlat=${c.latitude}&mlon=${c.longitude}#map=11/${c.latitude}/${c.longitude}" target="_blank" rel="noopener">OpenStreetMap</a>`),
+    row("Malha IBGE", `<a href="${esc(c.mesh_url)}?formato=application/vnd.geo%2Bjson" target="_blank" rel="noopener">GeoJSON</a>`),
+  ].join("");
+
+  $("grammar").innerHTML = st.name
+    ? `<p>${esc(st.name)} leva <code>${esc(st.prep_em)}</code> e <code>${esc(st.prep_de)}</code>${st.article ? ` (artigo <code>${esc(st.article)}</code>)` : " (sem artigo)"}:</p>
+       <p><b>Cartórios ${esc(st.name_with_em)}</b> · Prefeituras ${esc(st.name_with_de)} · ${esc(c.name)}, cidade ${esc(st.name_with_de)}</p>`
+    : "";
+
+  drawMap(c);
+  loadWeather(c);
+}
+
+/* ---------- map ---------- */
+const svg = $("map"), tip = $("tip");
+let view = null, home = null, project = null;
+function rings(g) {
+  if (!g) return [];
+  if (g.type === "Polygon") return g.coordinates;
+  if (g.type === "MultiPolygon") return g.coordinates.flat();
+  return [];
+}
+function bbox(points) {
+  const b = [Infinity, Infinity, -Infinity, -Infinity];
+  points.forEach(([x, y]) => { b[0] = Math.min(b[0], x); b[1] = Math.min(b[1], y); b[2] = Math.max(b[2], x); b[3] = Math.max(b[3], y); });
+  return b;
+}
+async function drawMap(c) {
+  const W = 1000, H = 460;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.innerHTML = "";
+  $("mapnote").textContent = "Carregando contorno do IBGE…";
+  let shape = null;
+  try {
+    const g = await getJSON(IBGE_MESH(c.ibge_code));
+    shape = (g.features ? g.features[0].geometry : g.geometry || g);
+  } catch { shape = null; }
+  if (current !== c) return;
+
+  const own = rings(shape).flat();
+  let b = own.length ? bbox(own) : [c.longitude - .25, c.latitude - .2, c.longitude + .25, c.latitude + .2];
+  const padX = (b[2] - b[0]) * .35 + .02, padY = (b[3] - b[1]) * .35 + .02;
+  b = [b[0] - padX, b[1] - padY, b[2] + padX, b[3] + padY];
+  const k = Math.cos((b[1] + b[3]) / 2 * Math.PI / 180);
+  const s = Math.min(W / ((b[2] - b[0]) * k), H / (b[3] - b[1]));
+  const ox = (W - (b[2] - b[0]) * k * s) / 2, oy = (H - (b[3] - b[1]) * s) / 2;
+  project = (lon, lat) => [((lon - b[0]) * k * s + ox), ((b[3] - lat) * s + oy)];
+  const path = rs => rs.map(r => r.map((p, i) => (i ? "L" : "M") + project(p[0], p[1]).map(v => v.toFixed(1)).join(" ")).join("") + "Z").join("");
+
+  let html = "";
+  const stateShape = stateShapes[c.uf];
+  if (stateShape) html += `<path d="${path(rings(stateShape))}" fill="var(--state)" stroke="var(--state-line)" stroke-width="1" vector-effect="non-scaling-stroke"/>`;
+  if (shape) html += `<path d="${path(rings(shape))}" fill="var(--fill-soft)" stroke="var(--fill)" stroke-width="2" vector-effect="non-scaling-stroke"/>`;
+  const near = cities.filter(x => x !== c && x.longitude > b[0] && x.longitude < b[2] && x.latitude > b[1] && x.latitude < b[3]);
+  near.forEach(x => {
+    const [px, py] = project(x.longitude, x.latitude);
+    html += `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="4" fill="var(--dot)" stroke="var(--surface)" stroke-width="2" vector-effect="non-scaling-stroke" data-code="${x.ibge_code}" style="cursor:pointer"/>`;
+  });
+  const [cx, cy] = project(c.longitude, c.latitude);
+  html += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="7" fill="var(--accent)" stroke="var(--surface)" stroke-width="2.5" vector-effect="non-scaling-stroke"/>`;
+  svg.innerHTML = html;
+  view = home = [0, 0, W, H];
+  $("mapnote").textContent = shape ? `${near.length} sedes vizinhas · clique para abrir` : "Contorno indisponível (API do IBGE fora do ar); mostrando a sede.";
+}
+
+$("fit").onclick = () => { if (home) { view = [...home]; svg.setAttribute("viewBox", view.join(" ")); } };
+svg.addEventListener("mousemove", e => {
+  const t = e.target.closest("[data-code]");
+  if (!t) { tip.style.opacity = 0; return; }
+  const x = byCode.get(Number(t.dataset.code)), r = svg.parentElement.getBoundingClientRect();
+  tip.innerHTML = `<b>${esc(x.name)}</b> · ${x.uf}${x.population_2022 != null ? ` · ${fmt.format(x.population_2022)} hab.` : ""}`;
+  tip.style.left = Math.min(e.clientX - r.left + 12, r.width - tip.offsetWidth - 8) + "px";
+  tip.style.top = (e.clientY - r.top + 12) + "px";
+  tip.style.opacity = 1;
+});
+svg.addEventListener("mouseleave", () => tip.style.opacity = 0);
+let drag = null, moved = false;
+svg.addEventListener("click", e => {
+  if (moved) return;
+  const t = e.target.closest("[data-code]");
+  if (t) show(byCode.get(Number(t.dataset.code)));
+});
+svg.addEventListener("wheel", e => {
+  if (!view) return;
+  e.preventDefault();
+  const [x, y, w, h] = view, r = svg.getBoundingClientRect();
+  const mx = x + (e.clientX - r.left) / r.width * w, my = y + (e.clientY - r.top) / r.height * h;
+  const f = e.deltaY > 0 ? 1.15 : 1 / 1.15;
+  view = [mx - (mx - x) * f, my - (my - y) * f, w * f, h * f];
+  svg.setAttribute("viewBox", view.join(" "));
+}, { passive: false });
+svg.addEventListener("pointerdown", e => { if (view) { drag = { x: e.clientX, y: e.clientY, v: [...view] }; moved = false; } });
+window.addEventListener("pointerup", () => { drag = null; svg.classList.remove("drag"); });
+window.addEventListener("pointermove", e => {
+  if (!drag) return;
+  const r = svg.getBoundingClientRect(), dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+  if (Math.abs(dx) + Math.abs(dy) > 3) { moved = true; svg.classList.add("drag"); }
+  view = [drag.v[0] - dx / r.width * drag.v[2], drag.v[1] - dy / r.height * drag.v[3], drag.v[2], drag.v[3]];
+  svg.setAttribute("viewBox", view.join(" "));
+});
+
+/* ---------- weather ---------- */
+async function cptecId(c) {
+  if (c.cptec_id != null) return c.cptec_id;
+  const list = await getJSON(`${BRASILAPI}/cidade/${encodeURIComponent(c.name)}`);
+  const hit = list.find(x => x.estado === c.uf && norm(x.nome) === c._key) || list.find(x => x.estado === c.uf);
+  return hit ? hit.id : null;
+}
+async function loadWeather(c) {
+  const box = $("weather");
+  box.innerHTML = `<p class="muted">Carregando previsão…</p>`;
+  try {
+    const id = await cptecId(c);
+    if (current !== c) return;
+    if (id == null) { box.innerHTML = `<p class="muted">Município não encontrado no CPTEC.</p>`; return; }
+    const f = await getJSON(`${BRASILAPI}/clima/previsao/${id}/6`);
+    if (current !== c) return;
+    const days = f.clima || [];
+    const lo = Math.min(...days.map(d => d.min)), hi = Math.max(...days.map(d => d.max)), span = Math.max(hi - lo, 1);
+    const weekday = d => new Date(d + "T12:00:00").toLocaleDateString("pt-BR", { weekday: "short", day: "2-digit", month: "2-digit" });
+    box.innerHTML = `<div class="days">${days.map(d => `
+      <div class="day"><b>${weekday(d.data)}</b>
+        <div class="cond">${esc(d.condicao_desc)}</div>
+        <div class="range"><i style="left:${(d.min - lo) / span * 100}%;right:${100 - (d.max - lo) / span * 100}%"></i></div>
+        <div class="temps"><span>${d.min}°</span><span>${d.max}°</span></div>
+        ${d.indice_uv != null ? `<div class="muted">UV ${d.indice_uv}</div>` : ""}
+      </div>`).join("")}</div>
+      <p class="muted" style="margin:10px 0 0">CPTEC ${id} · atualizado em ${esc(f.atualizado_em || "")}</p>`;
+  } catch (e) {
+    if (current === c) box.innerHTML = `<p class="muted">Previsão indisponível agora. Tente de novo em alguns minutos.</p>`;
+  }
+}
+
+boot().catch(e => { $("title").innerHTML = `<h2>Não foi possível carregar os dados</h2><span class="sub">${esc(e.message)}</span>`; });
+</script>
+</body>
+</html>
