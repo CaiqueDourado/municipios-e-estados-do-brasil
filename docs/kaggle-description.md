@@ -29,3 +29,5 @@
 Base fields credited to kelvins/municipios-brasileiros (MIT). Full data dictionary, methodology, quality report and scripts: **https://github.com/CaiqueDourado/municipios-e-estados-do-brasil**
 
 License: CC BY 4.0. Author: Caique Dourado.
+
+Same project: Brazilian e-commerce product catalog, 114.6 million offers from 7,179 stores: https://www.kaggle.com/datasets/caiquedourado/catalogo-produtos-ecommerce-brasil
