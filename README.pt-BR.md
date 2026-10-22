@@ -118,4 +118,4 @@ Dados: [CC BY 4.0](LICENSE-DATA.md), com o aviso MIT da base em [THIRD-PARTY-NOT
 
 ## Autor
 
-**Caique Dourado**: 20 anos construindo crawlers, pipelines de dados e SEO programático em .NET e SQL Server. Mais em [github.com/CaiqueDourado](https://github.com/CaiqueDourado). Do mesmo projeto: [catalogo-produtos-ecommerce-brasil](https://github.com/CaiqueDourado/catalogo-produtos-ecommerce-brasil), 114,6 milhões de ofertas de lojas brasileiras.
+**Caique Dourado**: 20 anos construindo crawlers, pipelines de dados e SEO programático em .NET e SQL Server. Mais em [github.com/CaiqueDourado](https://github.com/CaiqueDourado): [paises-do-mundo-ptbr](https://github.com/CaiqueDourado/paises-do-mundo-ptbr), [nomes-e-sobrenomes-brasil](https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil) (nomes brasileiros com o estado onde cada um é mais comum), [PtBr.Text](https://github.com/CaiqueDourado/PtBr.Text).
