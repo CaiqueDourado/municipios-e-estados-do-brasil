@@ -140,4 +140,4 @@ Data: [CC BY 4.0](LICENSE-DATA.md), with the MIT notice of the base data in [THI
 
 ## Author
 
-**Caique Dourado**: 20 years building crawlers, data pipelines and programmatic SEO in .NET and SQL Server. More at [github.com/CaiqueDourado](https://github.com/CaiqueDourado): [paises-do-mundo-ptbr](https://github.com/CaiqueDourado/paises-do-mundo-ptbr), [nomes-e-sobrenomes-brasil](https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil) (Brazilian names with the state where each is most common), [PtBr.Text](https://github.com/CaiqueDourado/PtBr.Text) (CEP, DDD, CPF/CNPJ and Portuguese text utilities for .NET).
+**Caique Dourado**: 20 years building crawlers, data pipelines and programmatic SEO in .NET and SQL Server. More at [github.com/CaiqueDourado](https://github.com/CaiqueDourado): [paises-do-mundo-ptbr](https://github.com/CaiqueDourado/paises-do-mundo-ptbr), [brazilian-names-surnames](https://github.com/CaiqueDourado/brazilian-names-surnames) (Brazilian names with the state where each is most common), [PtBr.Text](https://github.com/CaiqueDourado/PtBr.Text) (CEP, DDD, CPF/CNPJ and Portuguese text utilities for .NET).
