@@ -143,6 +143,10 @@ pip install -r requirements.txt
 python scripts/build.py && python scripts/validate.py && python scripts/docs.py
 ```
 
+## Related
+
+- [search-pattern-miner](https://github.com/CaiqueDourado/search-pattern-miner): its example gazetteer of places comes from this dataset (states, codes and municipalities with 100,000+ people).
+
 ## License
 
 Data: [CC BY 4.0](LICENSE-DATA.md), with the MIT notice of the base data in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). Code: [MIT](LICENSE). Citation: [CITATION.cff](CITATION.cff).

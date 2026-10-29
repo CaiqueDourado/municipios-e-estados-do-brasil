@@ -121,6 +121,10 @@ O perfil da exportação encontrou estes problemas, todos corrigidos em código:
 
 O perfil também confirmou que os 9 dígitos verificadores "inválidos" do IBGE são oficiais. O relatório completo está em [data-quality.md](docs/data-quality.md).
 
+## Relacionados
+
+- [search-pattern-miner](https://github.com/CaiqueDourado/search-pattern-miner): o gazetteer de exemplo de lugares vem desta base (estados, siglas e municípios com 100 mil habitantes ou mais).
+
 ## Licença
 
 Dados: [CC BY 4.0](LICENSE-DATA.md), com o aviso MIT da base em [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). Código: [MIT](LICENSE).
