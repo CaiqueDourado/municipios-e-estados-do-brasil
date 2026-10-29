@@ -145,6 +145,7 @@ python scripts/build.py && python scripts/validate.py && python scripts/docs.py
 
 ## Related
 
+- [portuguese-entity-gazetteer](https://github.com/CaiqueDourado/portuguese-entity-gazetteer): 307 thousand Portuguese entities with their types, 10 thousand of them cities and 5 thousand neighbourhoods.
 - [search-pattern-miner](https://github.com/CaiqueDourado/search-pattern-miner): its example gazetteer of places comes from this dataset (states, codes and municipalities with 100,000+ people).
 
 ## License

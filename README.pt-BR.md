@@ -123,6 +123,7 @@ O perfil também confirmou que os 9 dígitos verificadores "inválidos" do IBGE 
 
 ## Relacionados
 
+- [portuguese-entity-gazetteer](https://github.com/CaiqueDourado/portuguese-entity-gazetteer): 307 mil entidades do português com seus tipos, 10 mil delas cidades e 5 mil bairros.
 - [search-pattern-miner](https://github.com/CaiqueDourado/search-pattern-miner): o gazetteer de exemplo de lugares vem desta base (estados, siglas e municípios com 100 mil habitantes ou mais).
 
 ## Licença
