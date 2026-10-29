@@ -19,6 +19,12 @@
 - Enrichment joined by IBGE code: regional divisions, 2022 Census population, area and density, latest population estimate, seat elevation and FBDS hydrography totals (springs, km of rivers, water bodies) for 5,470 municipalities (98%).
 - Interactive explorer: https://caiquedourado.github.io/municipios-e-estados-do-brasil/
 
+## How a state is structured
+
+![One state and its municipalities as nested JSON](https://raw.githubusercontent.com/CaiqueDourado/municipios-e-estados-do-brasil/main/docs/img/state-json.png)
+
+One row of `estados`, Acre, with its columns grouped and its 22 municipalities from `municipios` nested under it by `state_ibge_code`, the capital first. The state takes an article ("no Acre", "do Acre") and has 830,018 people in the 2022 Census; Rio Branco, its capital, has 364,756, DDD 68, SIAFI code `0139` and UTC offset `-05:00`. Full record: [`docs/example-state.json`](https://github.com/CaiqueDourado/municipios-e-estados-do-brasil/blob/main/docs/example-state.json), built by [`scripts/make_json.py`](https://github.com/CaiqueDourado/municipios-e-estados-do-brasil/blob/main/scripts/make_json.py).
+
 ## Why another municipalities table
 
 - **Joins:** IBGE code for census and IBGE data, SIAFI code for federal transfer and Treasury data, DDD for phone data.

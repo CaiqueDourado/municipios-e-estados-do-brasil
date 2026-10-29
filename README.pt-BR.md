@@ -24,6 +24,15 @@
 | BA | Bahia | Salvador | a | na Bahia | da Bahia |
 | GO | Goiás | Goiânia | | em Goiás | de Goiás |
 
+## Como um estado é estruturado
+
+![Um estado e seus municípios em JSON aninhado](docs/img/state-json.png)
+
+Uma linha de `estados`, o Acre, com as colunas agrupadas e os 22 municípios de `municipios` aninhados por
+`state_ibge_code`, a capital primeiro. O estado leva artigo ("no Acre", "do Acre") e tem 830.018 habitantes no
+Censo 2022; Rio Branco, a capital, tem 364.756, DDD 68, código SIAFI `0139` e fuso `-05:00`. Registro completo:
+[`docs/example-state.json`](docs/example-state.json), gerado por [`scripts/make_json.py`](scripts/make_json.py).
+
 ## Mapa
 
 **[Explorador interativo](https://caiquedourado.github.io/municipios-e-estados-do-brasil/)**: escolha qualquer município para ver o contorno, os dados e a previsão do tempo. Troque o código no endereço (`?ibge=2927408`) para ir direto a outro.

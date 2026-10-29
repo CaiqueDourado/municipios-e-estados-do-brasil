@@ -32,6 +32,15 @@
 | GO | Goiás | Goiânia | | em Goiás | de Goiás |
 | SP | São Paulo | São Paulo | | em São Paulo | de São Paulo |
 
+## How a state is structured
+
+![One state and its municipalities as nested JSON](docs/img/state-json.png)
+
+One row of `estados`, Acre, with its columns grouped and its 22 municipalities from `municipios` nested under it
+by `state_ibge_code`, the capital first. The state takes an article ("no Acre", "do Acre") and has 830,018
+people in the 2022 Census; Rio Branco, its capital, has 364,756, DDD 68, SIAFI code `0139` and UTC offset `-05:00`. Full
+record: [`docs/example-state.json`](docs/example-state.json), built by [`scripts/make_json.py`](scripts/make_json.py).
+
 ## Map
 
 **[Interactive explorer](https://caiquedourado.github.io/municipios-e-estados-do-brasil/)**: pick any municipality to see its boundary, its data and the weather forecast. Change the code in the address (`?ibge=2927408`) to jump to another one.

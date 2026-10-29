@@ -1,0 +1,975 @@
+{
+  "ibge_code": 12,
+  "uf": "AC",
+  "name": "Acre",
+  "region": "Norte",
+  "capital": "Rio Branco",
+  "latitude": -8.77,
+  "longitude": -70.55,
+  "timezone": "America/Rio_Branco",
+  "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/estados/12",
+  "municipality_count": 22,
+  "grammar": {
+    "article": "o",
+    "prep_em": "no",
+    "prep_de": "do",
+    "name_with_em": "no Acre",
+    "name_with_de": "do Acre"
+  },
+  "census_2022": {
+    "population_2022": 830018,
+    "area_km2": 164173.41
+  },
+  "hydrography": {
+    "hydro_springs": 26967,
+    "hydro_rivers_km": 117717.41
+  },
+  "municipios": [
+    {
+      "ibge_code": 1200401,
+      "name": "Rio Branco",
+      "name_ascii": "Rio Branco",
+      "slug": "rio-branco-ac",
+      "is_capital": true,
+      "latitude": -9.97499,
+      "longitude": -67.8243,
+      "ddd": 68,
+      "siafi_code": "0139",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200401",
+      "elevation_m": 147,
+      "regional_division": {
+        "immediate_region_code": 120001,
+        "immediate_region": "Rio Branco",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12004,
+        "microregion": "Rio Branco",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 364756,
+        "area_km2": 8835.15,
+        "density_2022": 41.28
+      },
+      "estimate": {
+        "population_estimate": 390058,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 1004,
+        "hydro_rivers_km": 5953.83,
+        "hydro_double_rivers_ha": 1864.42,
+        "hydro_water_bodies": 2528,
+        "hydro_water_bodies_ha": 2558.21,
+        "hydro_artificial_water_bodies": 2526,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200203,
+      "name": "Cruzeiro do Sul",
+      "name_ascii": "Cruzeiro do Sul",
+      "slug": "cruzeiro-do-sul-ac",
+      "is_capital": false,
+      "latitude": -7.62762,
+      "longitude": -72.6756,
+      "ddd": 68,
+      "siafi_code": "0107",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200203",
+      "elevation_m": 180,
+      "regional_division": {
+        "immediate_region_code": 120004,
+        "immediate_region": "Cruzeiro do Sul",
+        "intermediate_region_code": 1202,
+        "intermediate_region": "Cruzeiro do Sul",
+        "microregion_code": 12001,
+        "microregion": "Cruzeiro do Sul",
+        "mesoregion_code": 1201,
+        "mesoregion": "Vale do Juruá"
+      },
+      "census_2022": {
+        "population_2022": 91888,
+        "area_km2": 8783.47,
+        "density_2022": 10.46
+      },
+      "estimate": {
+        "population_estimate": 99404,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 2083,
+        "hydro_rivers_km": 7295.15,
+        "hydro_double_rivers_ha": 3976.69,
+        "hydro_water_bodies": 1089,
+        "hydro_water_bodies_ha": 2153.24,
+        "hydro_artificial_water_bodies": 897,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200609,
+      "name": "Tarauacá",
+      "name_ascii": "Tarauaca",
+      "slug": "tarauaca-ac",
+      "is_capital": false,
+      "latitude": -8.15697,
+      "longitude": -70.7722,
+      "ddd": 68,
+      "siafi_code": "0147",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200609",
+      "elevation_m": 173,
+      "regional_division": {
+        "immediate_region_code": 120005,
+        "immediate_region": "Tarauacá",
+        "intermediate_region_code": 1202,
+        "intermediate_region": "Cruzeiro do Sul",
+        "microregion_code": 12002,
+        "microregion": "Tarauacá",
+        "mesoregion_code": 1201,
+        "mesoregion": "Vale do Juruá"
+      },
+      "census_2022": {
+        "population_2022": 43467,
+        "area_km2": 20169.48,
+        "density_2022": 2.16
+      },
+      "estimate": {
+        "population_estimate": 47090,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 4961,
+        "hydro_rivers_km": 17050.16,
+        "hydro_double_rivers_ha": 12727.9,
+        "hydro_water_bodies": 1185,
+        "hydro_water_bodies_ha": 1477.54,
+        "hydro_artificial_water_bodies": 815,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200500,
+      "name": "Sena Madureira",
+      "name_ascii": "Sena Madureira",
+      "slug": "sena-madureira-ac",
+      "is_capital": false,
+      "latitude": -9.06596,
+      "longitude": -68.6571,
+      "ddd": 68,
+      "siafi_code": "0145",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200500",
+      "elevation_m": 132,
+      "regional_division": {
+        "immediate_region_code": 120003,
+        "immediate_region": "Sena Madureira",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12003,
+        "microregion": "Sena Madureira",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 41343,
+        "area_km2": 23759.51,
+        "density_2022": 1.74
+      },
+      "estimate": {
+        "population_estimate": 44170,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 1899,
+        "hydro_rivers_km": 14592.9,
+        "hydro_double_rivers_ha": 6860.2,
+        "hydro_water_bodies": 452,
+        "hydro_water_bodies_ha": 498.33,
+        "hydro_artificial_water_bodies": 421,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200302,
+      "name": "Feijó",
+      "name_ascii": "Feijo",
+      "slug": "feijo-ac",
+      "is_capital": false,
+      "latitude": -8.17054,
+      "longitude": -70.351,
+      "ddd": 68,
+      "siafi_code": "0113",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200302",
+      "elevation_m": 167,
+      "regional_division": {
+        "immediate_region_code": 120005,
+        "immediate_region": "Tarauacá",
+        "intermediate_region_code": 1202,
+        "intermediate_region": "Cruzeiro do Sul",
+        "microregion_code": 12002,
+        "microregion": "Tarauacá",
+        "mesoregion_code": 1201,
+        "mesoregion": "Vale do Juruá"
+      },
+      "census_2022": {
+        "population_2022": 35426,
+        "area_km2": 27976.87,
+        "density_2022": 1.27
+      },
+      "estimate": {
+        "population_estimate": 37874,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 6948,
+        "hydro_rivers_km": 25038.26,
+        "hydro_double_rivers_ha": 14667.08,
+        "hydro_water_bodies": 415,
+        "hydro_water_bodies_ha": 725.31,
+        "hydro_artificial_water_bodies": 369,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200104,
+      "name": "Brasiléia",
+      "name_ascii": "Brasileia",
+      "slug": "brasileia-ac",
+      "is_capital": false,
+      "latitude": -10.995,
+      "longitude": -68.7497,
+      "ddd": 68,
+      "siafi_code": "0105",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200104",
+      "elevation_m": 199,
+      "regional_division": {
+        "immediate_region_code": 120002,
+        "immediate_region": "Brasiléia",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12005,
+        "microregion": "Brasiléia",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 26000,
+        "area_km2": 3928.17,
+        "density_2022": 6.62
+      },
+      "estimate": {
+        "population_estimate": 28198,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 905,
+        "hydro_rivers_km": 3419.45,
+        "hydro_double_rivers_ha": 274.21,
+        "hydro_water_bodies": 648,
+        "hydro_water_bodies_ha": 695.9,
+        "hydro_artificial_water_bodies": 648,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200450,
+      "name": "Senador Guiomard",
+      "name_ascii": "Senador Guiomard",
+      "slug": "senador-guiomard-ac",
+      "is_capital": false,
+      "latitude": -10.1497,
+      "longitude": -67.7362,
+      "ddd": 68,
+      "siafi_code": "0153",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200450",
+      "elevation_m": 205,
+      "regional_division": {
+        "immediate_region_code": 120001,
+        "immediate_region": "Rio Branco",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12004,
+        "microregion": "Rio Branco",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 21454,
+        "area_km2": 2320.17,
+        "density_2022": 9.25
+      },
+      "estimate": {
+        "population_estimate": 22447,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 514,
+        "hydro_rivers_km": 1379.88,
+        "hydro_double_rivers_ha": 401.0,
+        "hydro_water_bodies": 735,
+        "hydro_water_bodies_ha": 889.3,
+        "hydro_artificial_water_bodies": 735,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200336,
+      "name": "Mâncio Lima",
+      "name_ascii": "Mancio Lima",
+      "slug": "mancio-lima-ac",
+      "is_capital": false,
+      "latitude": -7.61657,
+      "longitude": -72.8997,
+      "ddd": 68,
+      "siafi_code": "0109",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200336",
+      "elevation_m": 192,
+      "regional_division": {
+        "immediate_region_code": 120004,
+        "immediate_region": "Cruzeiro do Sul",
+        "intermediate_region_code": 1202,
+        "intermediate_region": "Cruzeiro do Sul",
+        "microregion_code": 12001,
+        "microregion": "Cruzeiro do Sul",
+        "mesoregion_code": 1201,
+        "mesoregion": "Vale do Juruá"
+      },
+      "census_2022": {
+        "population_2022": 19294,
+        "area_km2": 5451.62,
+        "density_2022": 3.54
+      },
+      "estimate": {
+        "population_estimate": 20616,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 1088,
+        "hydro_rivers_km": 4152.98,
+        "hydro_double_rivers_ha": 1957.0,
+        "hydro_water_bodies": 357,
+        "hydro_water_bodies_ha": 286.31,
+        "hydro_artificial_water_bodies": 240,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200252,
+      "name": "Epitaciolândia",
+      "name_ascii": "Epitaciolandia",
+      "slug": "epitaciolandia-ac",
+      "is_capital": false,
+      "latitude": -11.0188,
+      "longitude": -68.7341,
+      "ddd": 68,
+      "siafi_code": "0651",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200252",
+      "elevation_m": 222,
+      "regional_division": {
+        "immediate_region_code": 120002,
+        "immediate_region": "Brasiléia",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12005,
+        "microregion": "Brasiléia",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 18757,
+        "area_km2": 1652.67,
+        "density_2022": 11.35
+      },
+      "estimate": {
+        "population_estimate": 19997,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 408,
+        "hydro_rivers_km": 1453.36,
+        "hydro_double_rivers_ha": 388.5,
+        "hydro_water_bodies": 275,
+        "hydro_water_bodies_ha": 163.37,
+        "hydro_artificial_water_bodies": 275,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200708,
+      "name": "Xapuri",
+      "name_ascii": "Xapuri",
+      "slug": "xapuri-ac",
+      "is_capital": false,
+      "latitude": -10.6516,
+      "longitude": -68.4969,
+      "ddd": 68,
+      "siafi_code": "0149",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200708",
+      "elevation_m": 173,
+      "regional_division": {
+        "immediate_region_code": 120002,
+        "immediate_region": "Brasiléia",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12005,
+        "microregion": "Brasiléia",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 18243,
+        "area_km2": 5350.59,
+        "density_2022": 3.41
+      },
+      "estimate": {
+        "population_estimate": 19244,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 1061,
+        "hydro_rivers_km": 4629.42,
+        "hydro_double_rivers_ha": 1323.28,
+        "hydro_water_bodies": 615,
+        "hydro_water_bodies_ha": 675.52,
+        "hydro_artificial_water_bodies": 608,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200351,
+      "name": "Marechal Thaumaturgo",
+      "name_ascii": "Marechal Thaumaturgo",
+      "slug": "marechal-thaumaturgo-ac",
+      "is_capital": false,
+      "latitude": -8.93898,
+      "longitude": -72.7997,
+      "ddd": 68,
+      "siafi_code": "0655",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200351",
+      "elevation_m": 237,
+      "regional_division": {
+        "immediate_region_code": 120004,
+        "immediate_region": "Cruzeiro do Sul",
+        "intermediate_region_code": 1202,
+        "intermediate_region": "Cruzeiro do Sul",
+        "microregion_code": 12001,
+        "microregion": "Cruzeiro do Sul",
+        "mesoregion_code": 1201,
+        "mesoregion": "Vale do Juruá"
+      },
+      "census_2022": {
+        "population_2022": 17093,
+        "area_km2": 8190.95,
+        "density_2022": 2.09
+      },
+      "estimate": {
+        "population_estimate": 18154,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 1123,
+        "hydro_rivers_km": 4877.2,
+        "hydro_double_rivers_ha": 4686.51,
+        "hydro_water_bodies": 30,
+        "hydro_water_bodies_ha": 108.32,
+        "hydro_artificial_water_bodies": 24,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200807,
+      "name": "Porto Acre",
+      "name_ascii": "Porto Acre",
+      "slug": "porto-acre-ac",
+      "is_capital": false,
+      "latitude": -9.58138,
+      "longitude": -67.5478,
+      "ddd": 68,
+      "siafi_code": "0649",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200807",
+      "elevation_m": 158,
+      "regional_division": {
+        "immediate_region_code": 120001,
+        "immediate_region": "Rio Branco",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12004,
+        "microregion": "Rio Branco",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 16693,
+        "area_km2": 2604.42,
+        "density_2022": 6.41
+      },
+      "estimate": {
+        "population_estimate": 17585,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 176,
+        "hydro_rivers_km": 1449.74,
+        "hydro_double_rivers_ha": 724.99,
+        "hydro_water_bodies": 837,
+        "hydro_water_bodies_ha": 768.09,
+        "hydro_artificial_water_bodies": 832,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200385,
+      "name": "Plácido de Castro",
+      "name_ascii": "Placido de Castro",
+      "slug": "placido-de-castro-ac",
+      "is_capital": false,
+      "latitude": -10.2806,
+      "longitude": -67.1371,
+      "ddd": 68,
+      "siafi_code": "0151",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200385",
+      "elevation_m": 149,
+      "regional_division": {
+        "immediate_region_code": 120001,
+        "immediate_region": "Rio Branco",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12004,
+        "microregion": "Rio Branco",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 16560,
+        "area_km2": 1952.56,
+        "density_2022": 8.48
+      },
+      "estimate": {
+        "population_estimate": 17088,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 0,
+        "hydro_rivers_km": 0.0,
+        "hydro_double_rivers_ha": 0.0,
+        "hydro_water_bodies": 0,
+        "hydro_water_bodies_ha": 0.0,
+        "hydro_artificial_water_bodies": 0,
+        "hydro_source_updated": "2021-12-08"
+      }
+    },
+    {
+      "ibge_code": 1200427,
+      "name": "Rodrigues Alves",
+      "name_ascii": "Rodrigues Alves",
+      "slug": "rodrigues-alves-ac",
+      "is_capital": false,
+      "latitude": -7.73864,
+      "longitude": -72.661,
+      "ddd": 68,
+      "siafi_code": "0659",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200427",
+      "elevation_m": 189,
+      "regional_division": {
+        "immediate_region_code": 120004,
+        "immediate_region": "Cruzeiro do Sul",
+        "intermediate_region_code": 1202,
+        "intermediate_region": "Cruzeiro do Sul",
+        "microregion_code": 12001,
+        "microregion": "Cruzeiro do Sul",
+        "mesoregion_code": 1201,
+        "mesoregion": "Vale do Juruá"
+      },
+      "census_2022": {
+        "population_2022": 14938,
+        "area_km2": 3076.34,
+        "density_2022": 4.86
+      },
+      "estimate": {
+        "population_estimate": 15580,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 627,
+        "hydro_rivers_km": 2227.24,
+        "hydro_double_rivers_ha": 910.93,
+        "hydro_water_bodies": 267,
+        "hydro_water_bodies_ha": 248.04,
+        "hydro_artificial_water_bodies": 244,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200013,
+      "name": "Acrelândia",
+      "name_ascii": "Acrelandia",
+      "slug": "acrelandia-ac",
+      "is_capital": false,
+      "latitude": -9.82581,
+      "longitude": -66.8972,
+      "ddd": 68,
+      "siafi_code": "0643",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200013",
+      "elevation_m": 150,
+      "regional_division": {
+        "immediate_region_code": 120001,
+        "immediate_region": "Rio Branco",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12004,
+        "microregion": "Rio Branco",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 14021,
+        "area_km2": 1811.61,
+        "density_2022": 7.74
+      },
+      "estimate": {
+        "population_estimate": 14762,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 71,
+        "hydro_rivers_km": 339.21,
+        "hydro_double_rivers_ha": 254.23,
+        "hydro_water_bodies": 312,
+        "hydro_water_bodies_ha": 470.73,
+        "hydro_artificial_water_bodies": 312,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200138,
+      "name": "Bujari",
+      "name_ascii": "Bujari",
+      "slug": "bujari-ac",
+      "is_capital": false,
+      "latitude": -9.81528,
+      "longitude": -67.955,
+      "ddd": 68,
+      "siafi_code": "0645",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200138",
+      "elevation_m": 188,
+      "regional_division": {
+        "immediate_region_code": 120001,
+        "immediate_region": "Rio Branco",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12004,
+        "microregion": "Rio Branco",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 12917,
+        "area_km2": 3034.87,
+        "density_2022": 4.26
+      },
+      "estimate": {
+        "population_estimate": 14076,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 187,
+        "hydro_rivers_km": 1700.25,
+        "hydro_double_rivers_ha": 294.66,
+        "hydro_water_bodies": 1176,
+        "hydro_water_bodies_ha": 1240.36,
+        "hydro_artificial_water_bodies": 1175,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200344,
+      "name": "Manoel Urbano",
+      "name_ascii": "Manoel Urbano",
+      "slug": "manoel-urbano-ac",
+      "is_capital": false,
+      "latitude": -8.83291,
+      "longitude": -69.2679,
+      "ddd": 68,
+      "siafi_code": "0155",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200344",
+      "elevation_m": 169,
+      "regional_division": {
+        "immediate_region_code": 120003,
+        "immediate_region": "Sena Madureira",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12003,
+        "microregion": "Sena Madureira",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 11996,
+        "area_km2": 10630.6,
+        "density_2022": 1.13
+      },
+      "estimate": {
+        "population_estimate": 13057,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 743,
+        "hydro_rivers_km": 6635.14,
+        "hydro_double_rivers_ha": 7065.77,
+        "hydro_water_bodies": 165,
+        "hydro_water_bodies_ha": 410.83,
+        "hydro_artificial_water_bodies": 76,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200393,
+      "name": "Porto Walter",
+      "name_ascii": "Porto Walter",
+      "slug": "porto-walter-ac",
+      "is_capital": false,
+      "latitude": -8.26323,
+      "longitude": -72.7537,
+      "ddd": 68,
+      "siafi_code": "0657",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200393",
+      "elevation_m": 192,
+      "regional_division": {
+        "immediate_region_code": 120004,
+        "immediate_region": "Cruzeiro do Sul",
+        "intermediate_region_code": 1202,
+        "intermediate_region": "Cruzeiro do Sul",
+        "microregion_code": 12001,
+        "microregion": "Cruzeiro do Sul",
+        "mesoregion_code": 1201,
+        "mesoregion": "Vale do Juruá"
+      },
+      "census_2022": {
+        "population_2022": 10735,
+        "area_km2": 6446.38,
+        "density_2022": 1.67
+      },
+      "estimate": {
+        "population_estimate": 11386,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 674,
+        "hydro_rivers_km": 3302.71,
+        "hydro_double_rivers_ha": 2876.12,
+        "hydro_water_bodies": 147,
+        "hydro_water_bodies_ha": 465.85,
+        "hydro_artificial_water_bodies": 112,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200179,
+      "name": "Capixaba",
+      "name_ascii": "Capixaba",
+      "slug": "capixaba-ac",
+      "is_capital": false,
+      "latitude": -10.566,
+      "longitude": -67.686,
+      "ddd": 68,
+      "siafi_code": "0647",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200179",
+      "elevation_m": 194,
+      "regional_division": {
+        "immediate_region_code": 120001,
+        "immediate_region": "Rio Branco",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12004,
+        "microregion": "Rio Branco",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 10392,
+        "area_km2": 1705.82,
+        "density_2022": 6.09
+      },
+      "estimate": {
+        "population_estimate": 11035,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 283,
+        "hydro_rivers_km": 1283.12,
+        "hydro_double_rivers_ha": 490.72,
+        "hydro_water_bodies": 575,
+        "hydro_water_bodies_ha": 516.59,
+        "hydro_artificial_water_bodies": 574,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200328,
+      "name": "Jordão",
+      "name_ascii": "Jordao",
+      "slug": "jordao-ac",
+      "is_capital": false,
+      "latitude": -9.43091,
+      "longitude": -71.8974,
+      "ddd": 68,
+      "siafi_code": "0653",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200328",
+      "elevation_m": 367,
+      "regional_division": {
+        "immediate_region_code": 120005,
+        "immediate_region": "Tarauacá",
+        "intermediate_region_code": 1202,
+        "intermediate_region": "Cruzeiro do Sul",
+        "microregion_code": 12002,
+        "microregion": "Tarauacá",
+        "mesoregion_code": 1201,
+        "mesoregion": "Vale do Juruá"
+      },
+      "census_2022": {
+        "population_2022": 9222,
+        "area_km2": 5357.23,
+        "density_2022": 1.72
+      },
+      "estimate": {
+        "population_estimate": 9972,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 745,
+        "hydro_rivers_km": 3452.44,
+        "hydro_double_rivers_ha": 3783.75,
+        "hydro_water_bodies": 0,
+        "hydro_water_bodies_ha": 0.0,
+        "hydro_artificial_water_bodies": 0,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200054,
+      "name": "Assis Brasil",
+      "name_ascii": "Assis Brasil",
+      "slug": "assis-brasil-ac",
+      "is_capital": false,
+      "latitude": -10.9298,
+      "longitude": -69.5738,
+      "ddd": 68,
+      "siafi_code": "0157",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200054",
+      "elevation_m": 279,
+      "regional_division": {
+        "immediate_region_code": 120002,
+        "immediate_region": "Brasiléia",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12005,
+        "microregion": "Brasiléia",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 8100,
+        "area_km2": 4979.07,
+        "density_2022": 1.63
+      },
+      "estimate": {
+        "population_estimate": 8716,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 644,
+        "hydro_rivers_km": 3770.01,
+        "hydro_double_rivers_ha": 2334.14,
+        "hydro_water_bodies": 103,
+        "hydro_water_bodies_ha": 77.72,
+        "hydro_artificial_water_bodies": 86,
+        "hydro_source_updated": "2023-08-21"
+      }
+    },
+    {
+      "ibge_code": 1200435,
+      "name": "Santa Rosa do Purus",
+      "name_ascii": "Santa Rosa do Purus",
+      "slug": "santa-rosa-do-purus-ac",
+      "is_capital": false,
+      "latitude": -9.44652,
+      "longitude": -70.4902,
+      "ddd": 68,
+      "siafi_code": "0661",
+      "timezone": "America/Rio_Branco",
+      "utc_offset": "-05:00",
+      "mesh_url": "https://servicodados.ibge.gov.br/api/v3/malhas/municipios/1200435",
+      "elevation_m": 220,
+      "regional_division": {
+        "immediate_region_code": 120003,
+        "immediate_region": "Sena Madureira",
+        "intermediate_region_code": 1201,
+        "intermediate_region": "Rio Branco",
+        "microregion_code": 12003,
+        "microregion": "Sena Madureira",
+        "mesoregion_code": 1202,
+        "mesoregion": "Vale do Acre"
+      },
+      "census_2022": {
+        "population_2022": 6723,
+        "area_km2": 6155.86,
+        "density_2022": 1.09
+      },
+      "estimate": {
+        "population_estimate": 7285,
+        "population_estimate_year": 2026
+      },
+      "hydrography": {
+        "hydro_springs": 823,
+        "hydro_rivers_km": 3714.96,
+        "hydro_double_rivers_ha": 4327.09,
+        "hydro_water_bodies": 20,
+        "hydro_water_bodies_ha": 283.04,
+        "hydro_artificial_water_bodies": 20,
+        "hydro_source_updated": "2023-08-21"
+      }
+    }
+  ]
+}
