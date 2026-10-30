@@ -123,7 +123,7 @@ O perfil também confirmou que os 9 dígitos verificadores "inválidos" do IBGE 
 
 ## Relacionados
 
-- Artigo: [Enriquecendo cadastros com APIs abertas](https://github.com/CaiqueDourado/articles/blob/main/open-apis/README.pt-BR.md): como juntar um cadastro a esta tabela pelo código IBGE.
+- Artigo: [Enriquecendo cadastros com APIs abertas](https://github.com/CaiqueDourado/articles/blob/main/open-apis/README.pt-BR.md) ([em inglês no Medium](https://medium.com/@caiquedourado/enriching-sign-up-data-with-open-apis-37388f435398)): como juntar um cadastro a esta tabela pelo código IBGE.
 - [portuguese-entity-gazetteer](https://github.com/CaiqueDourado/portuguese-entity-gazetteer): 307 mil entidades do português com seus tipos, 10 mil delas cidades e 5 mil bairros.
 - [brazilian-notary-registry-offices](https://github.com/CaiqueDourado/brazilian-notary-registry-offices): os cartórios do Brasil, ligados a esta tabela por `codigo_ibge` = `ibge_code`.
 - [search-pattern-miner](https://github.com/CaiqueDourado/search-pattern-miner): o gazetteer de exemplo de lugares vem desta base (estados, siglas e municípios com 100 mil habitantes ou mais).
